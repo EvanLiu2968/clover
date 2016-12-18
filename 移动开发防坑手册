@@ -1,0 +1,29 @@
+#移动开发防坑手册#
+##布局##
+目前主要移动端开发布局主要有3种（只考虑移动端，不考虑pc端兼容）
+>1.直接px加百分比%、flex混合开发；
+>2.根据屏宽动态设置scale缩放viewport；
+>3.使用css3新单位rem作为开发单位；
+第一种：类似Bootstrap自适应布局，局部使用px，整体弹性自适应，使用简单、组合自由；
+缺点是不同屏宽呈现效果有差异，难以对应设计图尺寸。
+第二种：以设计图宽为网页宽，基本以px为单位，然后设置scale缩放网页，缺点是部分浏览器有兼容问题；
+第三种：首先跟第二种方案一样，以设计图宽为网页宽，基本以px为单位，不同的是使用工具将px转为rem，并动态设置好根部（html/body）font-size大小
+缺点是浏览器渲染时内部将rem转为px单位时，大部分浏览器会忽略px小数点，尺寸均存在0~2px的误差，所以转化最小单位需设为2px，以免1px、2px无法渲染
+##ios##
+2.ios safari浏览器默认有cursor:pointer的元素才能触发点击事件，并添加默认：active效果
+##Android##
+##分享##
+pc端通常会使用网页一键分享工具，还能统计分享数据
+但在移动端用户的社交工具通常只在app中使用，使用网页一键分享载入慢，并只能在浏览器登录后才能进行操作，体验差，基本不考虑；
+因此，只考虑引导用户使用原生app分享功能，下面列举一些分享使用
+微信：只能配置js-sdk获取分享定义权限，js-sdk需要绑定一个公众号，并且域名要与公众号域名相同，后台返回js-sdk的签名作为验证，有效期7200s
+QQ：引入qq分享js，设置分享接口：
+```
+//http://open.mobile.qq.com/api/component/share
+setShareInfo({
+              title  : wxShareConfig.title,
+              summary: wxShareConfig.desc,
+              pic    : wxShareConfig.imgUrl,
+              url    : wxShareConfig.link
+          });
+```
