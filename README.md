@@ -8,12 +8,20 @@
 
 参考资料：[https://developer.mozilla.org](https://developer.mozilla.org)
 
-### 迭代
+### Array && Object
+> Array和Object是引用类型。
+
+- Array.map
+- Array.filter
+- Array.some
+- Array.reduce
+- Object.defineProperties
+- Object.assign
 
 ### 闭包
 闭包在实际编写代码的时候是非常常见的，这里从表现，原理，目的等角度分别讲述。
-> 表现：可读取目标函数的局部作用域，可作为函数、模块之间的桥梁
-> 原理：函数执行时的上下文（作用域）取决于定义时环境而不是运行时环境
+> 表现：可读取目标函数的局部作用域，可作为函数、模块之间的桥梁<br>
+> 原理：函数执行时的上下文（作用域）取决于定义时环境而不是运行时环境<br>
 > 目的：代码模块化、作用域隔离、特殊需求
 
 #### 闭包的表现
@@ -86,14 +94,95 @@ var myModuel=(function(){
 	- 提取 `同上验证`
 	- 替换 `String.replace(regexp,String || Function)`
 
-### Object
-
-### 事件模型
 
 ### 设计模式
+- 模块模式
 - 原型模式
-- 工厂模式
 - 发布订阅模式(观察者模式)
+- 单例模式
+- 工厂模式
+
+下面均以最简的示例来阐述不同设计模式的一些差异
+#### 模块模式
+```
+示例一：模块是一个立即执行函数(IIFE)
+var myModuel=(function(){
+	// do something
+	return {}
+})();
+示例二：ES6 模块
+var myModuel=function(){};
+moduel.export=myModuel;
+export default myModuel
+```
+
+#### 原型模式
+```
+import React from 'react';
+class myModuel extends React.Component {
+	constructor() {};
+	render() {};
+}
+```
+
+#### 发布订阅模式
+```
+var myApp=new Vue({
+	el:'#app',
+	data:function(){
+		return {
+			name:'evanliu'
+		}
+	},
+	method:{
+		changeName:function(name){
+			this.$emit('nameChanged',{name:'evanliu2968'}) // dispatch event
+		}
+	},
+	mounted:function(){
+		this.$on('nameChanged',function(event,args){ // subscribe event
+			this.name=args.name;
+		})
+	}
+});
+```
+#### 单例模式
+```
+以jQuery为例
+$("#table").bootstrapTable(options); // 初始化table组件
+$("#table").bootstrapTable("refresh"); // 初始化后可直接调用原型方法
+简单做下示例：
+$.fn.bootstrapTable=function(option){
+	var Instance=this.data("bootstrap.table");
+	if(!Instance){
+		Instance=new BootstrapTable(option);
+		this.data("bootstrap.table",Instance)
+	} else {
+		Instance[option].apply(Instance,Array.prototype.slice.call(arguments, 1));
+	}
+	return this
+}
+```
+#### 工厂模式
+```
+顾名思义，工厂根据设计图调用不同的产线进行生产，相当于工厂的总线
+var shapeFactory = function(type) {
+	if(!type){
+		return null
+	}else if(type==='square'){
+		return new Square()
+	}else if(type==='circle'){
+		return new Circle()
+	}
+	return null
+}
+```
+其他设计模式还有：装饰模式等等
+
+### 事件模型
+- 事件冒泡
+- 事件代理
+- 事件触发
 
 ## 框架篇
 - react
