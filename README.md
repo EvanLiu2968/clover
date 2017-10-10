@@ -61,11 +61,22 @@ var myModuel=(function(){
 
 #### 闭包的目的
 普通的闭包不多讲，讲个常用到的例子。
-用过webpack开发react、vue等应用时，import JS文件都成了基础语法了，但其并不是ES6的语法，只是babel、 webpact等的实现，看看mozilla开发文档的描述：
+用过webpack开发react、vue等应用时，import JS文件都成了基础语法了，但其并不是ES6的语法，只是babel、 webpack等的实现，看看mozilla开发文档的描述：
 
 > **import 语句** 用于从一个已经导出的外部模块或另一个脚本中导入函数，对象或原始类型。
 
 事实上大部分语法包括ES6都是基于自身语言的的一个语法糖，可以延伸思考下import不同用法的闭包实现。
+```javascript
+import defaultExport from "module-name";
+import * as name from "module-name";
+import { export } from "module-name";
+import { export as alias } from "module-name";
+import { export1 , export2 } from "module-name";
+import { export1 , export2 as alias2 , [...] } from "module-name";
+import defaultExport, { export [ , [...] ] } from "module-name";
+import defaultExport, * as name from "module-name";
+import "module-name";
+```
 
 #### 闭包的原理
 之所以原理最后讲，是因为原理确实没什么好讲的，这正是javascript的一个特性，这里再次强调：**函数执行时的上下文（作用域）取决于定义时环境而不是运行时环境**，记住之，多思考。
@@ -73,7 +84,7 @@ var myModuel=(function(){
 ### 正则
 正则在所有语言里都是很重要的基础部分，在提升工作效率及分析框架或库的源码时都会看到它的身影，熟练掌握了正则，编程世界的青铜门将为你打开。
 正则的相关知识挺多，这里放个链接：[https://zhuanlan.zhihu.com/p/29707385](https://zhuanlan.zhihu.com/p/29707385)
-总是，正则很重要，正则很奇妙。下面列出部分关键词，以做警钟。
+总是，正则很重要，正则很奇妙。下面列出部分关键词，作为前进路上的陀螺仪。
 - 正则基本结构
 	- 字面量 `/evanliu/`
 	- 字符组 `/[a-z][0-9]/`
@@ -104,29 +115,39 @@ var myModuel=(function(){
 
 下面均以最简的示例来阐述不同设计模式的一些差异
 #### 模块模式
-```
-示例一：模块是一个立即执行函数(IIFE)
+```javascript
+// 示例一：模块是一个立即执行函数(IIFE)
 var myModuel=(function(){
 	// do something
 	return {}
 })();
-示例二：ES6 模块
+// 示例二：ES6 模块
 var myModuel=function(){};
 moduel.export=myModuel;
 export default myModuel
 ```
 
 #### 原型模式
-```
+```javascript
+// ES6
 import React from 'react';
 class myModuel extends React.Component {
 	constructor() {};
 	render() {};
 }
+// ES5
+function Component (props){
+	this.props=props;
+}
+Component.prototype={
+	render:function(){
+		return '<div></div>'
+	}
+}
 ```
 
 #### 发布订阅模式
-```
+```javascript
 var myApp=new Vue({
 	el:'#app',
 	data:function(){
@@ -147,11 +168,11 @@ var myApp=new Vue({
 });
 ```
 #### 单例模式
-```
-以jQuery为例
+```javascript
+// 以jQuery为例
 $("#table").bootstrapTable(options); // 初始化table组件
 $("#table").bootstrapTable("refresh"); // 初始化后可直接调用原型方法
-简单做下示例：
+// 简单做下示例：
 $.fn.bootstrapTable=function(option){
 	var Instance=this.data("bootstrap.table");
 	if(!Instance){
@@ -164,8 +185,8 @@ $.fn.bootstrapTable=function(option){
 }
 ```
 #### 工厂模式
-```
-顾名思义，工厂根据设计图调用不同的产线进行生产，相当于工厂的总线
+```javascript
+// 顾名思义，工厂根据设计图调用不同的产线进行生产，相当于工厂的总线
 var shapeFactory = function(type) {
 	if(!type){
 		return null
@@ -177,7 +198,7 @@ var shapeFactory = function(type) {
 	return null
 }
 ```
-其他设计模式还有：装饰模式等等
+其他设计模式还有：装饰模式、策略模式、状态模式等等
 
 ### 事件模型
 - 事件冒泡
@@ -234,6 +255,7 @@ var shapeFactory = function(type) {
 - express
 - koa
 - Egg
+- thinkjs
 - Meteor
 - Feathers
 
