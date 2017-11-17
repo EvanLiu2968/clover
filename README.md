@@ -198,7 +198,7 @@ var shapeFactory = function(type) {
 	return null
 }
 ```
-其他设计模式还有：装饰模式、策略模式、状态模式等等
+其他设计模式还有：装饰模式、策略模式、状态模式、中介者模式等等
 
 ### 事件模型
 - 事件冒泡
@@ -210,19 +210,19 @@ var shapeFactory = function(type) {
 - vue
 - angular
 
-### react
-- all in jsx
+### React
+- all in JSX
 - 单向数据流
-- 虚拟dom diff算法
+- virtual DOM
 
-### vue
-- 渐进式，API简洁
-- 双向数据绑定
+### Vue
+- 渐进式
+- 双向数据绑定模版
 
-### angular
+### Angular
 - typescript编写
-- 规范工程
-- all in angular
+- 工程式规范
+- 依赖注入
 
 ### 关键词
 - typescript
