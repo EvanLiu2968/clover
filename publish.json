@@ -1,0 +1,48 @@
+{
+  "title": "clover",
+  "version": "beta",
+  "author": "EvanLiu",
+  "baseUrl": "https://raw.githubusercontent.com/EvanLiu2968/clover/master/",
+  "category": [
+    {
+      "title": "learning",
+      "keywords": ["学习","前端","node","python"],
+      "description": "",
+      "children": [
+        {
+          "title": "learning",
+          "keywords": [ "学习" ],
+          "description": "",
+          "src": "learning/README.md"
+        }
+      ]
+    },
+    {
+      "title": "thought",
+      "keywords": [ "想法" ],
+      "description": "",
+      "children": [
+        {
+          "title": "learning",
+          "keywords": [ "学习" ],
+          "description": "",
+          "src": "thought/README.md"
+        }
+      ]
+    },
+    {
+      "title": "story",
+      "keywords": [ "短故事" ],
+      "description": "",
+      "children": [
+        {
+          "title": "learning",
+          "keywords": [ "学习" ],
+          "description": "",
+          "src": "story/README.md"
+        }
+      ]
+    }
+    
+  ]
+}
