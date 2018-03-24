@@ -1,67 +1,70 @@
 {
   "title": "blog",
-  "version": "1.0",
+  "version": "beta",
   "author": "EvanLiu",
-  "motto": "与时间为友，不忘仰望星空",
+  "motto": "与时间为敌，不忘仰望星空",
   "baseUrl": "https://raw.githubusercontent.com/EvanLiu2968/clover/master/",
   "category": [
     {
-      "title": "learning",
+      "title": "技术",
+      "category": "learning",
       "description": "技术学习",
       "children": [
         {
-          "title": "learning",
+          "title": "README",
           "keywords": [ "学习" ],
           "createTime": "2018-03-23",
-          "src": "learning/README.md"
+          "src": "README.md"
         },
         {
           "title": "基于Linux的node服务器搭建",
           "keywords": [ "linux","centOS","node","nginx" ],
           "createTime": "2018-03-23",
-          "src": "learning/基于Linux的node服务器搭建.md"
+          "src": "基于Linux的node服务器搭建.md"
         },
         {
           "title": "node同构应用中ES6的使用",
           "keywords": [ "linux","centOS","node","nginx" ],
           "createTime": "2018-03-23",
-          "src": "learning/node同构应用中ES6的使用.md"
+          "src": "node同构应用中ES6的使用.md"
         },
         {
           "title": "node模块缓存及热更新",
           "keywords": [ "linux","centOS","node","nginx" ],
           "createTime": "2018-03-23",
-          "src": "learning/node模块缓存及热更新.md"
+          "src": "node模块缓存及热更新.md"
         },
         {
           "title": "node内存泄露排查",
           "keywords": [ "linux","centOS","node","nginx" ],
           "createTime": "2018-03-23",
-          "src": "learning/node内存泄露排查.md"
+          "src": "node内存泄露排查.md"
         }
       ]
     },
     {
-      "title": "thought",
-      "description": "想法",
+      "title": "想法",
+      "description": "记录某时某刻的想法",
       "children": [
         {
-          "title": "thought",
+          "title": "README",
+          "category": "thought",
           "keywords": [ "README" ],
           "createTime": "2018-03-23",
-          "src": "thought/README.md"
+          "src": "README.md"
         }
       ]
     },
     {
-      "title": "story",
-      "description": "短故事",
+      "title": "故事",
+      "category": "story",
+      "description": "学写短故事，",
       "children": [
         {
-          "title": "story",
+          "title": "README",
           "keywords": [ "README" ],
           "createTime": "2018-03-23",
-          "src": "story/README.md"
+          "src": "README.md"
         }
       ]
     }

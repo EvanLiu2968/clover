@@ -1,6 +1,6 @@
 {
   "title": "photo",
-  "version": "1.0",
+  "version": "beta",
   "author": "EvanLiu",
   "motto": "以梦为马",
   "photoList": [
@@ -45,7 +45,7 @@
       "title":"池塘倒影"
     },
     {
-      "img":"https://evanliu2968.github.io/https://evanliu2968.github.io/static/images/photo/m_03.jpg",
+      "img":"https://evanliu2968.github.io/static/images/photo/m_03.jpg",
       "desc":"看不见，路的方向",
       "title":"天路"
     },
@@ -85,7 +85,7 @@
       "title":"生活"
     },
     {
-      "img":"static/images/photo/x_02.jpg",
+      "img":"https://evanliu2968.github.io/static/images/photo/x_02.jpg",
       "desc":"大路小路任我行",
       "title":"华侨城"
     },
