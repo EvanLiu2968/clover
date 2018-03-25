@@ -1,3 +1,10 @@
+
+# 基于Linux的node服务器搭建
+
+> 现在这个个人网站[www.wvanliu2968.com.cn](http://www.wvanliu2968.com.cn)本来还想多花点时间做个管理系统，算了下时间，直接从github获取我写的markdown得了。另外，吐槽下备案进度，一个月简直了。
+
+大概介绍下网站，用了node做服务器，`koa2` + `react server side render`，从腾讯云买的服务器(1年)及域名(4年)，总计￥120，我是用的是centOS 7，目前主要用到了node、pm2、nginx、git
+
 ## Run it at cloud server
 
 > The following steps can be success with Tecent cloud server.
@@ -7,8 +14,7 @@ check the version of `node/npm/nginx`. as expected, they need to update.
 now, let's start it.
 `npm i n -g`
 `n latest`
-`npm i npm -g`
-`npm i pm2 -g`
+`npm i npm pm2 -g`
 
 2. git pull remote resposity.
 `mkdir evanliu2968 && cd evanliu2968`
@@ -16,6 +22,7 @@ now, let's start it.
 `git add remote evanliu2968 https://github.com/EvanLiu2968/node-mpa.git`
 `git fetch evanliu2968`
 `git checkout master`
+`git pull`
 
 3. install node_modules and run `npm run build`,
 then, add pm2 item for monitor your project.
@@ -93,6 +100,8 @@ server {
     }
 }
 ```
+
+for Mac
 
 start nginx (when the port less than 1024, it must be runned as sudo, otherwise throw `permission denied`)
 `sudo nginx`

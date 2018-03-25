@@ -18,25 +18,25 @@
         },
         {
           "title": "基于Linux的node服务器搭建",
-          "keywords": [ "linux","centOS","node","nginx" ],
-          "createTime": "2018-03-23",
+          "keywords": [ "centOS","node","nginx" ],
+          "createTime": "2018-03-18",
           "src": "基于Linux的node服务器搭建.md"
         },
         {
           "title": "node同构应用中ES6的使用",
-          "keywords": [ "linux","centOS","node","nginx" ],
-          "createTime": "2018-03-23",
+          "keywords": [ "同构","ES6" ],
+          "createTime": "2018-03-20",
           "src": "node同构应用中ES6的使用.md"
         },
         {
           "title": "node模块缓存及热更新",
-          "keywords": [ "linux","centOS","node","nginx" ],
-          "createTime": "2018-03-23",
+          "keywords": [ "模块缓存","模块热更新" ],
+          "createTime": "2018-03-22",
           "src": "node模块缓存及热更新.md"
         },
         {
           "title": "node内存泄露排查",
-          "keywords": [ "linux","centOS","node","nginx" ],
+          "keywords": [ "内存","泄漏排查" ],
           "createTime": "2018-03-23",
           "src": "node内存泄露排查.md"
         }
@@ -44,14 +44,32 @@
     },
     {
       "title": "想法",
+      "category": "thought",
       "description": "记录某时某刻的想法",
       "children": [
         {
-          "title": "README",
-          "category": "thought",
-          "keywords": [ "README" ],
-          "createTime": "2018-03-23",
-          "src": "README.md"
+          "title": "与时间为敌",
+          "keywords": [ "时间","坚持" ],
+          "createTime": "2018-03-25",
+          "src": "与时间为敌.md"
+        },
+        {
+          "title": "输入与输出",
+          "keywords": [ "手机","专注" ],
+          "createTime": "2018-03-26",
+          "src": "输入与输出.md"
+        },
+        {
+          "title": "生活需要有仪式感",
+          "keywords": [ "仪式","信仰" ],
+          "createTime": "2018-03-27",
+          "src": "生活需要有仪式感.md"
+        },
+        {
+          "title": "风格体故事",
+          "keywords": [ "故事","王家卫","刘慈欣" ],
+          "createTime": "2018-03-28",
+          "src": "风格体故事.md"
         }
       ]
     },
