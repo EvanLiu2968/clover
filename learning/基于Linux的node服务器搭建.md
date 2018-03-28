@@ -1,9 +1,10 @@
 
-# 基于Linux的node服务器搭建
+# 基于Linux的Node服务器搭建
 
-> 现在这个个人网站[www.wvanliu2968.com.cn](http://www.wvanliu2968.com.cn)本来还想多花点时间做个管理系统，算了下时间，直接从github获取我写的markdown得了。另外，吐槽下备案进度，一个月简直了。
+> 个人网站[www.wvanliu2968.com.cn](http://www.wvanliu2968.com.cn)，本来还想多花点时间做个管理系统，时间很紧，所以直接从Github获取我的markdown文档仓库。<br/>
+另外，吐槽下备案进度，一个月简直了。
 
-大概介绍下网站，用了node做服务器，`koa2` + `react server side render`，从腾讯云买的服务器(1年)及域名(4年)，总计￥120，我是用的是centOS 7，目前主要用到了node、pm2、nginx、git
+简单介绍下网站构建，以Node作为服务器，`koa2` + `react server side render`，从腾讯云买的服务器(1年)及域名(4年)，总计￥120，我是选择的镜像系统是centOS 7，搭建过程中主要用到了node、pm2、nginx、git
 
 ## Run it at cloud server
 
