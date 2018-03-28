@@ -1,0 +1,3 @@
+# 听着Django写Django
+
+> 我可以说先听的昆汀的Django这首歌才注意到Django这个框架的吗，不过听着Django写Django是真的贼刺激。
