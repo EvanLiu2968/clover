@@ -11,12 +11,6 @@
       "description": "技术学习",
       "children": [
         {
-          "title": "README",
-          "keywords": [ "学习" ],
-          "createTime": "2018-03-23",
-          "src": "README.md"
-        },
-        {
           "title": "基于Linux的node服务器搭建",
           "keywords": [ "centOS","node","nginx" ],
           "createTime": "2018-03-18",
