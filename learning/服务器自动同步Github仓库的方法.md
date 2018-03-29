@@ -43,7 +43,7 @@ router.post('/hookTest', async function(ctx, next) {
       console.log(res) //res返回的是shell命令操作后在命令行终端显示的字符串，这里是一些git操作的提示
     });
   }
-  ctx.body = 'hello, github!'
+  ctx.body = { message:'hello, github' }
 });
 // 运行shell
 function runCmd(cmd, args, callback) {
