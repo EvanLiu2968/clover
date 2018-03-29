@@ -98,7 +98,7 @@ Element:active{
 7. 动画定义3D启用硬件加速
 ```css
 Element {
-    -webkit-transform:translate3d(0, 0, 0)
+    -webkit-transform:translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
 ```
