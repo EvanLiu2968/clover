@@ -37,9 +37,16 @@ Module._load = function(request, parent, isMain) {
 
 require.cache = Module._cache;
 ```
+清除缓存思路如下
+```
+function cleanCache (module) {
+  var path = require.resolve(module);
+  require.cache[path] = null;
+}
+```
 因为我也没有实践过，所以这里给个可行的思路，具体可以参考下面给出的一些相关资料
 
 ### 相关资料参考
 
-[热更新引发的内存泄漏](https://zhuanlan.zhihu.com/p/34702356)
-[热更新思路](http://fex.baidu.com/blog/2015/05/nodejs-hot-swapping/)
+- [热更新引发的内存泄漏](https://zhuanlan.zhihu.com/p/34702356)
+- [热更新思路](http://fex.baidu.com/blog/2015/05/nodejs-hot-swapping/)
