@@ -30,6 +30,8 @@
 
 这里以我的node服务作为示例，直接在`koa-router`里加上接口
 ```javascript
+var crypto = require('crypto'); // 提供通用的加密和哈希算法
+
 router.post('/hookTest', async function(ctx, next) {
   // console.log(ctx.req.headers)
   // console.log(ctx.request.body) //一大串仓库push的信息，没什么用，忽略它
@@ -37,11 +39,17 @@ router.post('/hookTest', async function(ctx, next) {
   var event = ctx.req.headers['x-github-event']    //输出为：事件名称(push)
   var commitID    = ctx.req.headers['x-github-delivery'] //输出为：commitID
   if(event=='push'){
+    // 根据请求的body和secret计算sha1的值
+    var hmac = crypto.createHmac('sha1','your github secret');
+    hmac.update(new Buffer(JSON.stringify(ctx.req.body))); //ctx.req.body时github传过来的post数据(跟ctx.request.body一样的)
+    var signature = 'sha1=' + hmac.digest('hex'); //用这个跟sign对比
     // 可在此验证sign真伪
-    let cwd = process.cwd()
-    runCmd('sh', [path.join(cwd,'scripts/pullClover.sh')], function(res){
-      console.log(res) //res返回的是shell命令操作后在命令行终端显示的字符串，这里是一些git操作的提示
-    });
+    if(signature == sign){
+      let cwd = process.cwd()
+      runCmd('sh', [path.join(cwd,'scripts/pullClover.sh')], function(res){
+        console.log(res) //res返回的是shell命令操作后在命令行终端显示的字符串，这里是一些git操作的提示
+      });
+    }
   }
   ctx.body = { message:'hello, github' }
 });
@@ -55,7 +63,9 @@ function runCmd(cmd, args, callback) {
   child.stdout.on('end', function() { callback (res) });
 }
 ```
-关于`scripts/pullClover.sh`的shell脚本我这里就简单的`git pull`，顺便也贴上来
+关于`crypto`模块，可以看这个[crypto](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434501504929883d11d84a1541c6907eefd792c0da51000)
+
+`scripts/pullClover.sh`的shell脚本我这里就简单的`git pull`，顺便也贴上来
 ```shell
 #!/bin/bash
 
