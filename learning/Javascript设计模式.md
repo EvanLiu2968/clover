@@ -3,6 +3,7 @@
 > 只是一个思路，自行斟酌。
 
 ### 主要设计模式
+
 - 模块模式
 - 原型模式
 - 发布订阅模式(观察者模式)
@@ -10,13 +11,16 @@
 - 工厂模式
 
 下面均以最简的示例来阐述不同设计模式的一些差异
+
 #### 模块模式
+
 ```javascript
 // 示例一：模块是一个立即执行函数(IIFE)
 var myModuel=(function(){
 	// do something
 	return {}
 })();
+
 // 示例二：ES6 模块
 var myModuel=function(){};
 moduel.export=myModuel;
@@ -24,6 +28,7 @@ export default myModuel
 ```
 
 #### 原型模式
+
 ```javascript
 // ES6
 import React from 'react';
@@ -43,6 +48,7 @@ Component.prototype={
 ```
 
 #### 发布订阅模式
+
 ```javascript
 var myApp=new Vue({
 	el:'#app',
@@ -64,6 +70,7 @@ var myApp=new Vue({
 });
 ```
 #### 单例模式
+
 ```javascript
 // 以jQuery为例
 $("#table").bootstrapTable(options); // 初始化table组件
@@ -81,6 +88,7 @@ $.fn.bootstrapTable=function(option){
 }
 ```
 #### 工厂模式
+
 ```javascript
 // 顾名思义，工厂根据设计图调用不同的产线进行生产，相当于工厂的总线
 var shapeFactory = function(type) {
