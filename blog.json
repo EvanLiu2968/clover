@@ -11,10 +11,10 @@
       "description": "技术学习",
       "children": [
         {
-          "title": "基于Linux的Node服务器搭建",
+          "title": "基于CentOS7的Node服务器搭建",
           "keywords": [ "CentOS7","Node","Nginx" ],
           "createTime": "2018-03-18",
-          "src": "基于Linux的Node服务器搭建.md"
+          "src": "基于CentOS7的Node服务器搭建.md"
         },
         {
           "title": "服务器自动同步Github仓库的方法",
