@@ -19,7 +19,7 @@ module.exports = function(){
 在特殊场景需求下需要不重启就更新一些非核心node模块，而由于node模块的缓存检测机制，热更新实际上就是如何来清除引用的模块缓存
 
 node模块加载的核心代码如下
-```
+```javascript
 Module._load = function(request, parent, isMain) {
   var filename = Module._resolveFilename(request, parent);
 
@@ -38,7 +38,7 @@ Module._load = function(request, parent, isMain) {
 require.cache = Module._cache;
 ```
 清除缓存思路如下
-```
+```javascript
 function cleanCache (module) {
   var path = require.resolve(module);
   require.cache[path] = null;
