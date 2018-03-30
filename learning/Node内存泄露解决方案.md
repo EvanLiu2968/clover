@@ -14,7 +14,7 @@
 ### 闭包引用导致的泄漏
 
 本来闭包的一个特性就是可以让局域作用域内的一些变量常驻，这种算是最多的典型，拿网上的代码示例如下：
-```
+```javascript
 'use strict';
 const express = require('express');
 const app = express();
@@ -22,19 +22,19 @@ const app = express();
 //以下是产生泄漏的代码
 let theThing = null;
 let replaceThing = function () {
-    let leak = theThing;
-    let unused = function () {
-        if (leak)
-            console.log("hi")
-    };
-    
-    // 不断修改theThing的引用
-    theThing = {
-        longStr: new Array(1000000),
-        someMethod: function () {
-            console.log('a');
-        }
-    };
+  let leak = theThing;
+  let unused = function () {
+    if (leak)
+      console.log("hi")
+  };
+  
+  // 不断修改theThing的引用
+  theThing = {
+    longStr: new Array(1000000),
+    someMethod: function () {
+      console.log('a');
+    }
+  };
 };
 
 app.get('/leak', function closureLeak(req, res, next) {
@@ -47,7 +47,7 @@ app.listen(8082);
 
 ### 全局缓存导致的泄漏
 有时候可能用了某些变量来缓存数据而没有清除旧数据，自然会导致变量内存占用越来越高，代码示例如下：
-```
+```javascript
 'use strict';
 const easyMonitor = require('easy-monitor');
 const express = require('express');
@@ -64,24 +64,24 @@ app.get('/arr', function arrayLeak(req, res, next) {
 app.listen(8082);
 ```
 值得注意的是，如果你对某个变量频繁的进行赋值操作，也可能导致垃圾内存回收的不及时
-```
+```javascript
 const _cached = {};
 app.post('/userinfo', function arrayLeak(req, res, next) {
-	//频繁的进行赋值操作
-    _cached.userinfo=req.body
-    res.send('Hello World');
+  //频繁的进行赋值操作
+  _cached.userinfo=req.body
+  res.send('Hello World');
 });
 ```
 
 ### 原生Socket重连策略不恰当导致的泄漏
 这种比较少见，我直接从网上找了例子
-```
+```javascript
 const net = require('net');
 let client = new net.Socket();
 
 function connect() {
-    client.connect(26665, '127.0.0.1', function callbackListener() {
-    console.log('connected!');
+  client.connect(26665, '127.0.0.1', function callbackListener() {
+  console.log('connected!');
 });
 }
 
@@ -89,20 +89,17 @@ function connect() {
 connect();
 
 client.on('error', function (error) {
-    // console.error(error.message);
+  // console.error(error.message);
 });
 
 client.on('close', function () {
-    //console.error('closed!');
-    //泄漏代码
-    client.destroy();
-    setTimeout(connect, 1);
+  //console.error('closed!');
+  //泄漏代码
+  client.destroy();
+  setTimeout(connect, 1);
 });
 ``` 
 这是 `net` 模块的重连每一次都会给 client 增加一个 connect事件 的侦听器，如果一直重连不上，侦听器会无限增加，从而导致泄漏。
-
-# 使用`easy-monitor`监控node server
-[相关文章](https://cnodejs.org/topic/58eb5d378cda07442731569f)
 
 ## 泄漏排查工具的使用
 
@@ -115,7 +112,7 @@ client.on('close', function () {
 [easy-monitor文档](http://easy-monitor.cn/document)
 
 这个我还加了作者好友，在这里给个推广，使用很简单
-```
+```javascript
 // monitor进程界面: http://localhost:12333  文档:http://easy-monitor.cn/document
 const easyMonitor = require('easy-monitor');
 easyMonitor('monitor 7atour');
@@ -165,7 +162,7 @@ myApp()
 `vi .bashrc`
 
 .bashrc根据不同系统有不同配置方式，具体参照命令终端给出的提示
-```
+```bashrc
 export TNVM_DIR="/Users/用户/.tnvm"
 [ -s "$TNVM_DIR/tnvm.sh" ] && . "$TNVM_DIR/tnvm.sh"
 # This loads nvm

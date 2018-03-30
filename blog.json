@@ -65,10 +65,10 @@
           "src": "Python爬虫的简单应用.md"
         },
         {
-          "title": "听着Django写Django",
+          "title": "Django初体验",
           "keywords": [ "Django" ],
           "createTime": "2018-03-22",
-          "src": "听着Django写Django.md"
+          "src": "Django初体验.md"
         },
         {
           "title": "Javascript设计模式",
