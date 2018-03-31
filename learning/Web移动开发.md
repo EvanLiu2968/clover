@@ -1,6 +1,6 @@
-# Web移动开发
+## Web移动开发
 
-## 布局
+### 布局
 目前主要移动端开发布局主要有3种（只考虑移动端，不考虑pc端兼容）
 > 1.直接px加百分比%、flex混合开发；<br>
 > 2.根据屏宽动态设置scale缩放viewport；<br>
@@ -53,7 +53,7 @@ var pxtorem = require('postcss-pxtorem');
 ```
 缺点是浏览器渲染时内部将rem转为px单位时，大部分浏览器会忽略px小数点，尺寸均存在0~2px的误差，所以转化最小单位需设为2px，以免1px、2px无法渲染
 
-## 注意事项
+### 注意事项
 1. 使用viewport使页面禁止缩放
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -119,8 +119,8 @@ Element{
 <meta http-equiv="Cache-Control" content="no-cache" />
 ```
 
-## 系统的兼容问题或差异
-### iOS
+### 系统的兼容问题或差异
+#### iOS
 1. iOS safari浏览器默认样式`cursor:pointer`的元素才能触发点击事件。
 2. meta
 ```html
@@ -135,7 +135,7 @@ Element{
 <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png" />
 ```
 
-### Android
+#### Android
 1. meta
 ```html
 <!-- QQ浏览器： -->
@@ -159,7 +159,7 @@ Element{
 <meta name="browsermode" content="application">
 ```
 
-## 分享
+### 分享
 pc端通常会使用网页一键分享工具，还能统计分享数据
 但在移动端用户的社交工具通常只在app中使用，使用网页一键分享载入慢，并只能在浏览器登录后才能进行操作，体验差，基本不考虑；
 因此，只考虑引导用户使用原生app分享功能，下面列举一些分享使用

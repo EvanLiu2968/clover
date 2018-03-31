@@ -1,5 +1,4 @@
-
-# 基于Linux的Node服务器搭建
+## 基于Linux的Node服务器搭建
 
 > 个人网站[www.wvanliu2968.com.cn](http://www.wvanliu2968.com.cn)，本来还想多花点时间做个管理系统，时间很紧，所以直接从Github获取我的markdown文档仓库。<br/>
 另外，吐槽下备案进度，一个月简直了。

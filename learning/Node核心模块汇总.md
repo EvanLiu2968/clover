@@ -1,6 +1,6 @@
-# node
+## Node核心模块汇总
 
-## node global
+### Node global
 - `__filename`
 - `__dirname`
 - `setTimeout/clearTimeout/setInterval/clearInterval`
@@ -8,7 +8,7 @@
 - `process`
 - `Process`
 
-## node module (default)
+## Node module (default)
 
 ### util
 node 工具模块
@@ -67,7 +67,7 @@ node 工具模块
 - `domain`
 - `child_process`
 
-## other module
+### other module
 - http-request
 
 ### async/await

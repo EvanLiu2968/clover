@@ -1,4 +1,4 @@
-# Javascript设计模式
+## Javascript设计模式
 
 > 只是一个思路，自行斟酌。
 
