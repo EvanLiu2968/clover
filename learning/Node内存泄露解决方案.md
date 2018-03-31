@@ -1,4 +1,4 @@
-# Node内存泄露解决方案
+## Node内存泄露解决方案
 
 如果只关注浏览器端的话，基本不用怎么关注内存的问题，毕竟能刷新重置。
 但在服务端就必须重视这个问题，高并发情况下，任何一个小问题都被放大了。
@@ -9,9 +9,9 @@
 
 主要需要解决的是第一种情况内存常驻(泄漏)的问题。
 
-## 内存泄露的典型情况
+### 内存泄露的典型情况
 
-### 闭包引用导致的泄漏
+#### 闭包引用导致的泄漏
 
 本来闭包的一个特性就是可以让局域作用域内的一些变量常驻，这种算是最多的典型，拿网上的代码示例如下：
 ```javascript
@@ -45,7 +45,7 @@ app.get('/leak', function closureLeak(req, res, next) {
 app.listen(8082);
 ```
 
-### 全局缓存导致的泄漏
+#### 全局缓存导致的泄漏
 有时候可能用了某些变量来缓存数据而没有清除旧数据，自然会导致变量内存占用越来越高，代码示例如下：
 ```javascript
 'use strict';
@@ -73,7 +73,7 @@ app.post('/userinfo', function arrayLeak(req, res, next) {
 });
 ```
 
-### 原生Socket重连策略不恰当导致的泄漏
+#### 原生Socket重连策略不恰当导致的泄漏
 这种比较少见，我直接从网上找了例子
 ```javascript
 const net = require('net');
@@ -101,13 +101,13 @@ client.on('close', function () {
 ``` 
 这是 `net` 模块的重连每一次都会给 client 增加一个 connect事件 的侦听器，如果一直重连不上，侦听器会无限增加，从而导致泄漏。
 
-## 泄漏排查工具的使用
+### 泄漏排查工具的使用
 
-### heapdump
+#### heapdump
 - `node-heapdump`
 - `node-memwatch`
 
-### easy-monitor
+#### easy-monitor
 
 [easy-monitor文档](http://easy-monitor.cn/document)
 
@@ -118,13 +118,13 @@ const easyMonitor = require('easy-monitor');
 easyMonitor('monitor 7atour');
 myApp()
 ```
-### Alinode - Node.js性能平台的使用
+#### Alinode - Node.js性能平台的使用
 
 大致过程是使用阿里开发的一个Node引擎Alinode代替原生Node执行项目，并通过连接Node.js性能平台，将内存堆数据传给平台进行分析，包括一些可视分析图的展示，这里只讲下其安装启动过程。
 
 > 以下步骤为Mac实际步骤
 
-#### 启动
+##### 启动
 
 未安装部署过`alinode`先执行 **安装部署** 步骤
 
@@ -152,11 +152,11 @@ myApp()
 2. 执行 **安装部署** 中的`source .bashrc`,不要切换终端，cd至相应文件执行
 `ENABLE_NODE_LOG=YES node index.js`
 
-#### 安装部署
+##### 安装部署
 
 [alinode runtime部署文档](https://help.aliyun.com/document_detail/60902.html?spm=a2c4g.11174283.6.552.7tCr1U)
 
-#### 安装alinode
+##### 安装alinode
 `wget -O- https://raw.githubusercontent.com/aliyun-node/tnvm/master/install.sh | bash`
 
 `vi .bashrc`
@@ -175,7 +175,7 @@ export PATH="/User/用户/.tnvm/bin/":$PATH
 `tnvm install alinode-v3.9.0` <br/>
 `tnvm use alinode-v3.9.0`
 
-#### 安装agenthub
+##### 安装agenthub
 `npm install @alicloud/agenthub -g` <br/>
 根据提示设置agenthub配置文件yourconfig.json <br/>
 配置完后`vi yourconfig.json`查看是否配置正确 <br/>
@@ -195,7 +195,7 @@ yourconfig.json 参数如下：
 ```
 然后按照 **启动** 步骤执行Alinode
 
-## Mock request
+### Mock request
 这个是我调试时模拟页面请求写的测试代码，顺便一起贴上来了
 ```javascript
 var request = require('request')
@@ -237,6 +237,6 @@ function getRandomFormArray(arr){
 }
 ```
 
-## 相关资料参考
+### 相关资料参考
 - [node内存控制](http://blog.csdn.net/exialym/article/details/52119074)
 - [js内存管理](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management)

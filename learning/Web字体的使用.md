@@ -1,6 +1,6 @@
-# Web字体的使用
+## Web字体的使用
 
-## font字体格式说明
+### font字体格式说明
 
 以font-awesome为例，其字体图标库包含以下几种文件格式
 
@@ -11,7 +11,7 @@
 - .woff ，Web Open Font Format，可以看作是ttf的再封装，加入了压缩和字体来源信息，通常比ttf小40%。也是当前web字体的主流格式。
 - .woff2 ，Web Open Font Format 2.0，相比woff最大的优化应该是加强了字体的压缩比。目前 支持的浏览器 只有正在互彪版本号的Chrome和Firefox。
 
-## 字体加载问题
+### 字体加载问题
 
 目前除了woff2在部分浏览器不支持，其他基本浏览器都是支持的，但有一问题经常会遇到，woff2加载时回报404，虽然不影响字体显示，但还是需要处理下，原因是服务器不能识别这种格式的文件。
 
@@ -29,11 +29,11 @@ AddType application/x-font-woff woff
 AddType application/x-font-woff2 woff2
 ```
 
-## iconfont
+### iconfont
 
 [阿里矢量图标库 iconfont.cn](http://www.iconfont.cn)
 多色图标(symbol)其实是多个单色svg的集合，支持 ie9+,及现代浏览器，通过引用相关js组合svg图标。
 
-## 其他
+### 其他
 
 icon字体化的趋势越来越明显，不过icon字体要自定义修改的话并不容易，低端设备也可能出现兼容问题，因此图标维持图片的做法并非过时，反而是现在及将来很长一段时间内最稳健的选择。
