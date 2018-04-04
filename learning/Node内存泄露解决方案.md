@@ -203,8 +203,8 @@ var request = require('request')
 const config = {
   requestUrl:[
     'http://127.0.0.1:9080/ssrTest1/',
-	'http://127.0.0.1:9080/ssrTest2/',
-	'http://127.0.0.1:9080/ssrTest3/',
+    'http://127.0.0.1:9080/ssrTest2/',
+    'http://127.0.0.1:9080/ssrTest3/',
   ],
   maxCount: 200
 }

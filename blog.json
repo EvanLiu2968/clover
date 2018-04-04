@@ -59,6 +59,12 @@
           "src": "Node爬虫的简单应用.md"
         },
         {
+          "title": "Egg实践之网站重构",
+          "keywords": [ "Egg","webpack","react" ],
+          "createTime": "2018-04-04",
+          "src": "Egg实践之网站重构.md"
+        },
+        {
           "title": "Python爬虫的简单应用",
           "keywords": [ "Python","爬虫" ],
           "createTime": "2018-03-31",
@@ -67,7 +73,7 @@
         {
           "title": "Django初体验",
           "keywords": [ "Django" ],
-          "createTime": "2018-03-22",
+          "createTime": "2018-04-19",
           "src": "Django初体验.md"
         },
         {
@@ -108,28 +114,10 @@
       "description": "记录某时某刻的想法",
       "children": [
         {
-          "title": "与时间为敌",
-          "keywords": [ "时间","坚持" ],
-          "createTime": "2018-03-25",
-          "src": "与时间为敌.md"
-        },
-        {
-          "title": "输入与输出",
-          "keywords": [ "手机","输出" ],
-          "createTime": "2018-03-26",
-          "src": "输入与输出.md"
-        },
-        {
-          "title": "聊聊电影",
-          "keywords": [ "电影" ],
-          "createTime": "2018-03-30",
-          "src": "聊聊电影.md"
-        },
-        {
-          "title": "生活中的仪式",
-          "keywords": [ "仪式" ],
-          "createTime": "2018-03-31",
-          "src": "生活中的仪式.md"
+          "title": "README",
+          "keywords": [ "README" ],
+          "createTime": "2018-04-04",
+          "src": "README.md"
         }
       ]
     },
@@ -146,6 +134,5 @@
         }
       ]
     }
-    
   ]
 }
