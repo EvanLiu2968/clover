@@ -1,6 +1,6 @@
 ## 基于Linux的Node服务器搭建
 
-> 个人网站[www.wvanliu2968.com.cn](http://www.wvanliu2968.com.cn)，本来还想多花点时间做个管理系统，时间很紧，所以直接从Github获取我的markdown文档仓库。<br/>
+> 个人网站[www.wvanliu2968.com.cn](http://www.wvanliu2968.com.cn) 本来还想多花点时间做个管理系统，时间很紧，所以直接从Github获取我的markdown文档仓库。<br/>
 另外，吐槽下备案进度，一个月简直了。
 
 简单介绍下网站构建，以Node作为服务器，`koa2` + `react server side render`，从腾讯云买的服务器(1年)及域名(4年)，总计￥120，我是选择的镜像系统是centOS 7，搭建过程中主要用到了node、pm2、nginx、git
@@ -19,7 +19,7 @@ now, let's start it.
 2. git pull remote resposity.
 `mkdir evanliu2968 && cd evanliu2968`
 `git init`
-`git add remote evanliu2968 https://github.com/EvanLiu2968/node-mpa.git`
+`git remote add evanliu2968 https://github.com/EvanLiu2968/evanliu2968.git`
 `git fetch evanliu2968`
 `git checkout master`
 `git pull`
@@ -49,16 +49,22 @@ cebtOS:
 `yum install nginx`
 
 4. nginx server command
+
 start nginx
 `systemctl start nginx`
+
 设置开机自启动
 `systemctl enable nginx.service`
+
 停止开机自启动
 `systemctl disable nginx.service`
+
 查看服务当前状态
 `systemctl status nginx.service`
+
 重新启动服务
 `systemctl restart nginx.service`
+
 查看所有已启动的服务
 `systemctl list-units --type=service`
 
@@ -72,26 +78,21 @@ for centOS config:
 
 conf http
 ```conf
+# /usr/local/etc/nginx/servers/default.conf
+
 map $http_upgrade $connection_upgrade {
   default upgrade;
   '' close;
 }
 
 upstream evanliu2968{
-  server 127.0.0.1:9080;
+  server 127.0.0.1:7001;    # 端口号需对应业务需求
   keepalive 64;
 }
+
 server {
     listen 80;
-    server_name localhost:9080;
-    # redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;
-    location  /50x.html {
-        root   /usr/share/nginx/html;
-    }
-    error_page  404              /404.html;
-
+    server_name www.evanliu2968.com.cn;
     location / {
       proxy_set_header	Host		$http_host;
       proxy_set_header	X-Real-IP	$remote_addr;
