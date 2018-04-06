@@ -109,9 +109,9 @@
       ]
     },
     {
-      "title": "想法",
-      "category": "thought",
-      "description": "记录某时某刻的想法",
+      "title": "分享",
+      "category": "share",
+      "description": "share the Ghost in the Shell",
       "children": [
         {
           "title": "README",

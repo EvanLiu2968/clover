@@ -1,9 +1,8 @@
 ## 基于Linux的Node服务器搭建
 
-> 个人网站[www.wvanliu2968.com.cn](http://www.wvanliu2968.com.cn) 本来还想多花点时间做个管理系统，时间很紧，所以直接从Github获取我的markdown文档仓库。<br/>
-另外，吐槽下备案进度，一个月简直了。
+> 个人网站[www.evanliu2968.com.cn](http://www.evanliu2968.com.cn) 本来还想多花点时间做个管理系统，时间很紧，所以直接从Github获取我的markdown文档仓库。另外，吐槽下备案进度，一个月简直了。
 
-简单介绍下网站构建，以Node作为服务器，`koa2` + `react server side render`，从腾讯云买的服务器(1年)及域名(4年)，总计￥120，我是选择的镜像系统是centOS 7，搭建过程中主要用到了node、pm2、nginx、git
+简单介绍下网站构建，以Node作为服务器，`koa2` + `react server side render`，从腾讯云买的服务器1年及域名4年，我是选择的镜像系统是centOS 7，搭建过程中主要用到了node、pm2、nginx、git, 后续加上redis,mongodb,docker.
 
 ## Run it at cloud server
 
@@ -12,23 +11,32 @@
 1. The cloud server should be in a node enviroment, and then login the command terminal.
 check the version of `node/npm/nginx`. as expected, they need to update.
 now, let's start it.
-`npm i n -g`
-`n latest`
-`npm i npm pm2 -g`
+
+```bash
+npm i n -g
+n latest
+npm i npm pm2 -g
+```
+
 
 2. git pull remote resposity.
-`mkdir evanliu2968 && cd evanliu2968` <br/>
-`git init` <br/>
-`git remote add evanliu2968 https://github.com/EvanLiu2968/evanliu2968.git` <br/>
-`git fetch evanliu2968` <br/>
-`git checkout master` <br/>
-`git pull` <br/>
 
-3. install node_modules and run `npm run build`,
-then, add pm2 item for monitor your project. <br/>
-`pm2 start index.js --name evanliu2968` <br/>
-`pm2 list` <br/>
-`pm2 log evanliu2968` <br/>
+```bash
+mkdir evanliu2968 && cd evanliu2968
+git init
+git remote add evanliu2968 https://github.com/EvanLiu2968/evanliu2968.git
+git fetch evanliu2968
+git checkout master
+git pull
+```
+
+3. install node_modules and run `npm run build`. then, add pm2 item for monitor your project.
+
+```bash
+pm2 start index.js --name evanliu2968
+pm2 list
+pm2 log evanliu2968
+```
 
 4. nginx
 
@@ -50,33 +58,30 @@ cebtOS:
 
 4. nginx server command
 
-start nginx
-`systemctl start nginx`
-
-设置开机自启动
-`systemctl enable nginx.service`
-
-停止开机自启动
-`systemctl disable nginx.service`
-
-查看服务当前状态
-`systemctl status nginx.service`
-
-重新启动服务
-`systemctl restart nginx.service`
-
-查看所有已启动的服务
-`systemctl list-units --type=service`
+- start nginx `systemctl start nginx`
+- 设置开机自启动 `systemctl enable nginx.service`
+- 停止开机自启动 `systemctl disable nginx.service`
+- 查看服务当前状态 `systemctl status nginx.service`
+- 重新启动服务 `systemctl restart nginx.service`
+- 查看所有已启动的服务 `systemctl list-units --type=service`
 
 for Mac config:
-`cd /usr/local/etc/nginx`
-`vi nginx.conf`
+```bash
+cd /usr/local/etc/nginx
+vi nginx.conf
+```
 
 for centOS config:
-`cd /etc/nginx/conf.d`
-`sudo vi default.conf`
+```
+cd /etc/nginx/conf.d
+sudo vi default.conf
+```
 
-conf http
+5. nginx conf setting
+
+when the protocol is `http`, you should proxy you APP to port 80,
+and when the protocol is `https`, you should proxy you APP to port 443.
+for example:
 ```conf
 # /usr/local/etc/nginx/servers/default.conf
 
@@ -105,6 +110,13 @@ server {
 for Mac
 
 start nginx (when the port less than 1024, it must be runned as sudo, otherwise throw `permission denied`)
-`sudo nginx`
+```bash
+sudo nginx
+```
+
 stop nginx
-`sudo nginx -s quit` or `sudo nginx -s stop` for force stop
+```bash
+sudo nginx -s quit
+# or force stop
+sudo nginx -s stop`
+```

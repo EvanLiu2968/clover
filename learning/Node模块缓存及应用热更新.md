@@ -1,6 +1,7 @@
 ## node模块缓存及热更新
 
 ### node模块缓存机制
+
 与前端浏览器会缓存静态脚本文件以提高性能一样，Node对引入过的模块都会进行缓存，以减少二次引入时的开销。不同的地方在于，浏览器仅仅缓存文件，而Node缓存的是编译和执行之后的对象。不论是核心模块还是文件模块，`require()`方法对相同模块的二次加载都一律采用缓存优先的方式，这是第一优先级的。不同之处在于核心模块的缓存检查先于文件模块的缓存检查。
 
 第二次引入的模块状态都将沿用第一次的状态，Node模块里的单例模式也是基于此
@@ -16,6 +17,7 @@ module.exports = function(){
 ```
 
 ### node模块热更新
+
 在特殊场景需求下需要不重启就更新一些非核心node模块，而由于node模块的缓存检测机制，热更新实际上就是如何来清除引用的模块缓存
 
 node模块加载的核心代码如下
@@ -37,6 +39,7 @@ Module._load = function(request, parent, isMain) {
 
 require.cache = Module._cache;
 ```
+
 清除缓存思路如下
 ```javascript
 function cleanCache (module) {
@@ -44,6 +47,7 @@ function cleanCache (module) {
   require.cache[path] = null;
 }
 ```
+
 因为我也没有实践过，所以这里给个可行的思路，具体可以参考下面给出的一些相关资料
 
 ### 相关资料参考

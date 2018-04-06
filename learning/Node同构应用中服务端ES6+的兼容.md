@@ -8,7 +8,7 @@
 
 ES6+在服务端使用关键就是`babel`
 
-Talk is cheap, show you the code.
+Talk is cheap, show the code.
 
 首先安装node模块
 

@@ -19,7 +19,9 @@ var $ = cheerio.load(html,{decodeEntities: false})
 var src=$('.pic').attr('src')
 console.log(src) // 输出为：test.jpg
 ```
-下面以真实例子来爬取一张图片
+
+下面以真实例子来爬取一张图片。
+
 首先要获取页面的html字符串，这里我用了`axios`来作为请求库，这个看自己喜好。
 ```javascript
 var axios = require('axios')
@@ -69,12 +71,16 @@ async function saveImages(list){
 }
 ```
 不出意外的话，`images`多了我首页的那张图片了。
+
 需要注意的是要控制并发的数量，抛开爬取网站IP限制的缘故，本身并发请求数量也是有限制的，我这里用了`async await`，直接一张张的同步下载
 
 ### puppeteer
 
-[evanliu2968.com.cn/photo](http://evanliu2968.com.cn/photo)里那么多的照片为什么不爬取那个呢？
-原来我的相册的数据是异步加载的，初始html并没有包含图片信息，当然也可以去截取接口的数据，这里不讨论这个，
+下面来学习下爬取[evanliu2968.com.cn/photo](http://evanliu2968.com.cn/photo)里的照片。
+
+这里是有两个难关的，一个是API token验证，egg自带了`egg-security`插件，而且我用的是react-ssr，甚至接口是什么都无从获取。
+第二个则是图片懒加载，只有到了视口才会加载整正的图片，否则就只能爬取到一张张loading.gif。
+
 我需要用的是另一个模块`puppeteer`，意思是木偶，chrome官方维护，是一个无状态(headless)Chrome，可以用来做测试、爬虫、甚至封装一个专属浏览器。
 
 直接以代码示例来说明
@@ -96,9 +102,11 @@ async function run() {
 }
 ```
 
-上述代码其实并不能爬取到我photo里的照片，因为我还用了图片懒加载，只有到了视口真实的图片才会加载，可以借助puppeteer的其他API来解决这个问题，方法可能不止一种。例如通过控制方向键来自动滚动加载图片
+图片懒加载的问题，可以借助puppeteer的其他API来解决这个问题，方法可能不止一种(比如从我关联信息里提取，埋个彩蛋)。
+例如通过控制方向键来自动滚动加载图片
 ```javascript
 let Keyboard = page.keyboard
 keyboard.press('ArrowUp',{delay:1000}) //按住上箭头键一秒，模拟滚动页面😢
 ```
+
 关于puppeteer的API可以去看看[puppeteer API](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md),了解下能做到哪些好玩的事
