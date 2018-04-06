@@ -8,10 +8,9 @@
 
 所以我找了几种方法
 - 方法一：写一个定时器，定时每过一段时间在目标仓库执行`git pull`
-- 方法二：部署Git Hooks，当监听到`push`事件时在目标仓库执行`git pull`，我搜了一个别人的教程
-<a href="https://segmentfault.com/a/1190000003836345" target="_blank">Git Hooks 部署教程</a>
+- 方法二：部署Git Hooks，当监听到`push`事件时在目标仓库执行`git pull`，我搜了一个别人的教程[Git Hooks 部署教程](https://segmentfault.com/a/1190000003836345)
 
-不过，我的仓库是托管在Github上的，Github已经贴心的做好了这个Hooks，<a href="https://developer.github.com/webhooks/" target="_blank">Github Webhooks官方文档</a>，下面主要就来介绍Github Webhooks如何使用。
+不过，我的仓库是托管在Github上的，Github已经贴心的做好了这个Hooks，[Github Webhooks官方文档](https://developer.github.com/webhooks/)，下面主要就来介绍Github Webhooks如何使用。
 
 ### Github仓库Webhooks设置
 
@@ -33,8 +32,7 @@
 var crypto = require('crypto'); // 提供通用的加密和哈希算法
 
 router.post('/hookTest', async function(ctx, next) {
-  // console.log(ctx.req.headers)
-  // console.log(ctx.request.body) //一大串仓库push的信息，没什么用，忽略它
+  // console.log(ctx.req.body) //一大串仓库push的信息，没什么用，只是用它来计算动态签名
   var sign   = ctx.req.headers['x-hub-signature']   //输出为：sha1=${secret的加密字符串}
   var event = ctx.req.headers['x-github-event']    //输出为：事件名称(push)
   var commitID    = ctx.req.headers['x-github-delivery'] //输出为：commitID

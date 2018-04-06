@@ -11,10 +11,10 @@
       "description": "技术学习",
       "children": [
         {
-          "title": "基于CentOS7的Node服务器搭建",
+          "title": "基于Linux的Node服务器搭建",
           "keywords": [ "CentOS7","Node","Nginx" ],
           "createTime": "2018-03-18",
-          "src": "基于CentOS7的Node服务器搭建.md"
+          "src": "基于Linux的Node服务器搭建.md"
         },
         {
           "title": "服务器自动同步Github仓库的方法",
@@ -41,22 +41,10 @@
           "src": "Node模块缓存及应用热更新.md"
         },
         {
-          "title": "重剑无锋之正则",
-          "keywords": [ "正则" ],
-          "createTime": "2018-03-26",
-          "src": "重剑无锋之正则.md"
-        },
-        {
           "title": "React和Vue同构组件的两端兼容",
           "keywords": [ "同构","React","Vue" ],
           "createTime": "2018-03-27",
           "src": "React和Vue同构组件的两端兼容.md"
-        },
-        {
-          "title": "Node爬虫的简单应用",
-          "keywords": [ "Node","爬虫" ],
-          "createTime": "2018-03-30",
-          "src": "Node爬虫的简单应用.md"
         },
         {
           "title": "Egg实践之网站重构",
@@ -65,10 +53,28 @@
           "src": "Egg实践之网站重构.md"
         },
         {
+          "title": "Node爬虫的简单应用",
+          "keywords": [ "Node","爬虫" ],
+          "createTime": "2018-03-30",
+          "src": "Node爬虫的简单应用.md"
+        },
+        {
           "title": "Node核心模块汇总",
           "keywords": [ "Node","核心模块" ],
           "createTime": "2017-10-05",
           "src": "Node核心模块汇总.md"
+        },
+        {
+          "title": "重剑无锋之正则",
+          "keywords": [ "正则" ],
+          "createTime": "2018-03-26",
+          "src": "重剑无锋之正则.md"
+        },
+        {
+          "title": "事件模型及其构建",
+          "keywords": [ "事件模型","event loop" ],
+          "createTime": "2017-10-03",
+          "src": "事件模型及其构建.md"
         },
         {
           "title": "Javascript设计模式",
@@ -87,12 +93,6 @@
           "keywords": [ "font","icon" ],
           "createTime": "2017-10-02",
           "src": "Web字体的使用.md"
-        },
-        {
-          "title": "事件模型及其构建",
-          "keywords": [ "事件模型","event loop" ],
-          "createTime": "2017-10-03",
-          "src": "事件模型及其构建.md"
         }
       ]
     },
@@ -104,8 +104,14 @@
         {
           "title": "README",
           "keywords": [ "README" ],
-          "createTime": "2018-04-04",
+          "createTime": "2018-04-07",
           "src": "README.md"
+        },
+        {
+          "title": "电影推荐",
+          "keywords": [ "电影","推荐" ],
+          "createTime": "2018-04-07",
+          "src": "电影推荐.md"
         }
       ]
     },
