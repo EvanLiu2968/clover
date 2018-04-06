@@ -17,18 +17,18 @@ now, let's start it.
 `npm i npm pm2 -g`
 
 2. git pull remote resposity.
-`mkdir evanliu2968 && cd evanliu2968`
-`git init`
-`git remote add evanliu2968 https://github.com/EvanLiu2968/evanliu2968.git`
-`git fetch evanliu2968`
-`git checkout master`
-`git pull`
+`mkdir evanliu2968 && cd evanliu2968` <br/>
+`git init` <br/>
+`git remote add evanliu2968 https://github.com/EvanLiu2968/evanliu2968.git` <br/>
+`git fetch evanliu2968` <br/>
+`git checkout master` <br/>
+`git pull` <br/>
 
 3. install node_modules and run `npm run build`,
-then, add pm2 item for monitor your project.
-`pm2 start index.js --name evanliu2968`
-`pm2 list`
-`pm2 log evanliu2968`
+then, add pm2 item for monitor your project. <br/>
+`pm2 start index.js --name evanliu2968` <br/>
+`pm2 list` <br/>
+`pm2 log evanliu2968` <br/>
 
 4. nginx
 
