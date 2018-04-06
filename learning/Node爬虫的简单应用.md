@@ -2,7 +2,7 @@
 
 爬虫，算是爬取资源工具的另一个称呼，今天简单介绍下如何用Node做一个爬虫脚本。
 
-以爬取图片为例，[evanliu2968.com.cn](http://evanliu2968.com.cn)我放了不少我以前拍的一些照片，现在我们来用脚本把它们自动下载下来。
+以爬取图片为例，[evanliu2968.com.cn](http://evanliu2968.com.cn)我放了一些我以前拍的一些照片，现在我们来用脚本把它们自动下载下来。
 
 ### cheerio
 
@@ -79,7 +79,7 @@ async function saveImages(list){
 下面来学习下爬取[evanliu2968.com.cn/photo](http://evanliu2968.com.cn/photo)里的照片。
 
 这里是有两个难关的，一个是API token验证，egg自带了`egg-security`插件，而且我用的是react-ssr，甚至接口是什么都无从获取。
-第二个则是图片懒加载，只有到了视口才会加载整正的图片，否则就只能爬取到一张张loading.gif。
+第二个则是图片懒加载，只有到了视口才会加载真正的图片，否则就只能爬取到一张张loading.gif。
 
 我需要用的是另一个模块`puppeteer`，意思是木偶，chrome官方维护，是一个无状态(headless)Chrome，可以用来做测试、爬虫、甚至封装一个专属浏览器。
 
