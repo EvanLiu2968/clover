@@ -109,4 +109,6 @@ let Keyboard = page.keyboard
 keyboard.press('ArrowUp',{delay:1000}) //按住上箭头键一秒，模拟滚动页面😢
 ```
 
+使用puppeteer是可以解决很多难题的，比如cookie/token限制，登录限制等，都可以通过puppeteer来解决，这里只算是一个引子。
+
 关于puppeteer的API可以去看看[puppeteer API](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md),了解下能做到哪些好玩的事
