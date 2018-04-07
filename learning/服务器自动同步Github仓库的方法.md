@@ -2,7 +2,7 @@
 
 ### 前提需求
 
-之前我有提及，[www.evanliu2968.com.cn]上的文档都是node服务读取我的Github上的一个专用文档库，由于请求Github文件的操作很慢且很容易挂掉，所以我在部署服务器上又加了一个从Github拉取下来的本地文档仓库，浏览文档可以秒开了。
+之前我有提及，[www.evanliu2968.com.cn](http://www.evanliu2968.com.cn)上的文档都是node服务读取我的Github上的一个专用文档库，由于请求Github文件的操作很慢且很容易挂掉，所以我在部署服务器上又加了一个从Github拉取下来的本地文档仓库，浏览文档可以秒开了。
 
 但随之带来一个问题，如果我更新文档库，还得登录服务器拉取文档库最新文档，这得浪费几分钟时间，肯定不能忍。
 
@@ -32,7 +32,7 @@
 var crypto = require('crypto'); // 提供通用的加密和哈希算法
 
 router.post('/hookTest', async function(ctx, next) {
-  // console.log(ctx.req.body) //一大串仓库push的信息，没什么用，只是用它来计算动态签名
+  // console.log(ctx.req.body) //一大串仓库push的信息，用它来计算动态签名
   var sign   = ctx.req.headers['x-hub-signature']   //输出为：sha1=${secret的加密字符串}
   var event = ctx.req.headers['x-github-event']    //输出为：事件名称(push)
   var commitID    = ctx.req.headers['x-github-delivery'] //输出为：commitID
