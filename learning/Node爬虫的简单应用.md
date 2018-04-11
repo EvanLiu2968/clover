@@ -29,7 +29,7 @@ var fs = require('fs')
 var cheerio = require('cheerio')
 
 function fetchImages(){
-  let href = 'http://www.evanliu2968.com.cn/'
+  let href = 'https:///www.evanliu2968.com.cn/'
   axios.get(href).then(res=>{
     return new Promise(function(resolve,reject){
       if(res.status == 200){

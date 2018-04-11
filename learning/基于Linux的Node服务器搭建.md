@@ -1,6 +1,6 @@
 ## 基于Linux的Node服务器搭建
 
-> 个人网站[www.evanliu2968.com.cn](http://www.evanliu2968.com.cn) 本来还想多花点时间做个管理系统，时间很紧，所以直接从Github获取我的markdown文档仓库。另外，吐槽下备案进度，说好的20个工作日，少一天，一个时辰，那都不能算20个工作日。
+> 个人网站[www.evanliu2968.com.cn](https:///www.evanliu2968.com.cn) 本来还想多花点时间做个管理系统，时间很紧，所以直接从Github获取我的markdown文档仓库。另外，吐槽下备案进度，说好的20个工作日，少一天，一个时辰，那都不能算20个工作日。
 
 简单介绍下网站构建，以Node作为服务器，`koa2` + `react server side render`，从腾讯云买的服务器1年及域名4年，我是选择的镜像系统是`CentOS 7`，搭建过程中主要用到了`node`、`pm2`、`nginx`、`git`, 后续加上`redis`, `mongodb`, `docker`.
 
@@ -57,6 +57,7 @@ yum install nginx
 
 
 *linux nginx server command*
+
 - start nginx `systemctl start nginx`
 - 设置开机自启动 `systemctl enable nginx.service`
 - 停止开机自启动 `systemctl disable nginx.service`
@@ -65,11 +66,11 @@ yum install nginx
 - 查看所有已启动的服务 `systemctl list-units --type=service`
 
 *Mac nginx server command*
+
 start nginx (when the port less than `1024`, it must be runned as sudo, otherwise throw `permission denied`)
 ```bash
 sudo nginx
 ```
-
 stop nginx
 ```bash
 sudo nginx -s quit
@@ -98,23 +99,14 @@ http.conf:
 ```conf
 # /etc/nginx/conf.d/http.conf
 
-map $http_upgrade $connection_upgrade {
-  default upgrade;
-  '' close;
-}
-
-upstream evanliu2968{
-  server 127.0.0.1:7001;
-  keepalive 64;
-}
-
 server {
   listen 80;
   server_name www.evanliu2968.com.cn;
+  return 301 https://$server_name$request_uri; // 重定向https，如果开启https的话，不开启注释掉
   location / {
     proxy_set_header	Host		$http_host;
     proxy_set_header	X-Real-IP	$remote_addr;
-    proxy_pass	http://evanliu2968;
+    proxy_pass	http://127.0.0.1:7001;
     proxy_redirect		off;
   }
 }
@@ -135,18 +127,8 @@ https.conf (以我的网站为例)
 ```conf
 # /etc/nginx/conf.d/https.conf
 
-map $http_upgrade $connection_upgrade {
-  default upgrade;
-  '' close;
-}
-
-upstream evanliu2968{
-  server 127.0.0.1:7001;
-  keepalive 64;
-}
-
 server {
-  listen 80;
+  listen 443;
   server_name www.evanliu2968.com.cn; #绑定证书的域名
   ssl on; #启用SSL功能
   ssl_certificate 1_www.evanliu2968.com_bundle.crt; #证书文件
@@ -155,11 +137,13 @@ server {
   ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #使用的协议
   ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; #配置加密套件
   ssl_prefer_server_ciphers on;
-  rewrite ^(.*) https://$host$1 permanent; #重定向http为https
   location / {
     proxy_set_header	Host		$http_host;
     proxy_set_header	X-Real-IP	$remote_addr;
-    proxy_pass	http://evanliu2968;
+    proxy_pass	http://127.0.0.1:7001;
     proxy_redirect		off;
   }
 }
+```
+
+开启后可以成功的看到[https://www.evanliu2968.com.cn](https://www.evanliu2968.com.cn)的小绿锁了。
