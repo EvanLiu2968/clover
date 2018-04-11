@@ -2,7 +2,7 @@
 
 ### 前提需求
 
-之前我有提及，[www.evanliu2968.com.cn](http://www.evanliu2968.com.cn)上的文档都是node服务读取我的Github上的一个专用文档库，由于请求Github文件的操作很慢且很容易挂掉，所以我在部署服务器上又加了一个从Github拉取下来的本地文档仓库，浏览文档可以秒开了。
+之前我有提及，[www.evanliu2968.com.cn](https:///www.evanliu2968.com.cn)上的文档都是node服务读取我的Github上的一个专用文档库，由于请求Github文件的操作很慢且很容易挂掉，所以我在部署服务器上又加了一个从Github拉取下来的本地文档仓库，浏览文档可以秒开了。
 
 但随之带来一个问题，如果我更新文档库，还得登录服务器拉取文档库最新文档，这得浪费几分钟时间，肯定不能忍。
 
@@ -17,7 +17,7 @@
 打开`Github`仓库 => `Settings` => `Webhooks`
 
 `Payload URL`项填写一个接口地址
-比如例如填的是`http://www.evanliu2968.com.cn/hookTest`，会在event发生时发起该URL的Post请求
+比如例如填的是`https:///www.evanliu2968.com.cn/hookTest`，会在event发生时发起该URL的Post请求
 
 `Content type`必须选择`application/json` <br/>
 `Secret`填写一个字符串，用来给你的接口做验证 <br/>
