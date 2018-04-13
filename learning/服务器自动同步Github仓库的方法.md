@@ -33,9 +33,9 @@ var crypto = require('crypto'); // 提供通用的加密和哈希算法
 
 router.post('/hookTest', async function(ctx, next) {
   // console.log(ctx.req.body) //一大串仓库push的信息，用它来计算动态签名
-  var sign   = ctx.req.headers['x-hub-signature']   //输出为：sha1=${secret的加密字符串}
+  var sign = ctx.req.headers['x-hub-signature']   //输出为：sha1=${secret的加密字符串}
   var event = ctx.req.headers['x-github-event']    //输出为：事件名称(push)
-  var commitID    = ctx.req.headers['x-github-delivery'] //输出为：commitID
+  var commitID = ctx.req.headers['x-github-delivery'] //输出为：commitID
   if(event=='push'){
     // 根据请求的body和secret计算sha1的值
     var hmac = crypto.createHmac('sha1','your github secret');

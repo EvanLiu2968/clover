@@ -39,6 +39,8 @@
     timer = setTimeout(refreshRem, 300);
   }, false);
 })(window);
+```
+```javascript
 // gulp
 var postcss = require('gulp-postcss');
 var pxtorem = require('postcss-pxtorem');
