@@ -4,12 +4,12 @@
 
 以font-awesome为例，其字体图标库包含以下几种文件格式
 
-- .otf ，OpenType - PostScript 字体, 采用的是 PostScript 曲线, 支持 OpenType 高级特性。
-- .svg ，由W3C制定的开放标准的矢量图形格式,体积最大。
-- .eot ，Embedded Open Type，主要用于早期版本的IE，是其专有格式，带有版权保护和压缩。
-- .ttf ，TrueType，在操作系统里更为常见，在web上使用的话，是为了兼容早期仅支持TTF和OTF的浏览器。由于体积比较大，还需要服务器额外压缩。
-- .woff ，Web Open Font Format，可以看作是ttf的再封装，加入了压缩和字体来源信息，通常比ttf小40%。也是当前web字体的主流格式。
-- .woff2 ，Web Open Font Format 2.0，相比woff最大的优化应该是加强了字体的压缩比。目前 支持的浏览器 只有正在互彪版本号的Chrome和Firefox。
+- `.otf` ，OpenType - PostScript 字体, 采用的是 PostScript 曲线, 支持 OpenType 高级特性。
+- `.svg` ，由W3C制定的开放标准的矢量图形格式,体积最大。
+- `.eot` ，Embedded Open Type，主要用于早期版本的IE，是其专有格式，带有版权保护和压缩。
+- `.ttf` ，TrueType，在操作系统里更为常见，在web上使用的话，是为了兼容早期仅支持TTF和OTF的浏览器。由于体积比较大，还需要服务器额外压缩。
+- `.woff` ，Web Open Font Format，可以看作是ttf的再封装，加入了压缩和字体来源信息，通常比ttf小40%。也是当前web字体的主流格式。
+- `.woff2` ，Web Open Font Format 2.0，相比woff最大的优化应该是加强了字体的压缩比。目前 支持的浏览器 只有正在互彪版本号的Chrome和Firefox。
 
 ### 字体加载问题
 
@@ -36,4 +36,4 @@ AddType application/x-font-woff2 woff2
 
 ### 其他
 
-icon字体化的趋势越来越明显，不过icon字体要自定义修改的话并不容易，低端设备也可能出现兼容问题，因此图标维持图片的做法并非过时，反而是现在及将来很长一段时间内最稳健的选择。
+icon字体化已是主流，不过多色图标和动态图标使得背景图式图标任然占有相当的比例，彩色图标的svg方案也是有兼容问题，因此图标维持图片的做法并非过时，反而是现在及将来很长一段时间内最稳健的选择。
