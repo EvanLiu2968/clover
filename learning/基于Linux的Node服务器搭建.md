@@ -37,6 +37,10 @@ git pull
 
 Mac: 
 ```bash
+# https://brew.sh/index_zh-cn.html
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# brew install nginx
 sudo brew install nginx
 ```
 
