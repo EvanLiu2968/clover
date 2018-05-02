@@ -1,6 +1,7 @@
 ## React和Vue同构组件的两端兼容
 
-前端框架原本多是用于是天然适合SPA的类管理系统，随着现在Node体系的完善及多样化的需求，越来越多的项目开始开始以Node作为服务器，React和Vue同构应用越来越流行，而同构就需要一套代码兼容Node和浏览器两端，所以介绍下同构组件如何做多端的兼容。<br/>
+前端框架原本多是用于是天然适合SPA的类管理系统，随着现在Node体系的完善及多样化的需求，越来越多的项目开始开始以Node作为服务器，React和Vue同构应用越来越流行，而同构就需要一套代码兼容Node和浏览器两端，所以介绍下同构组件如何做多端的兼容。
+
 兼容处理就在于两端组件执行的生命周期不尽相同，注意在node同构周期避免使用window操作即可。
 
 ### 浏览器端生命周期
@@ -8,13 +9,13 @@
 浏览器端组件的生命周期就是组件的完整生命周期，这里随意列了下。
 
 for React
-```
+```javascript
 getDefaultProps => getInitialState => componentWillMount => render
 => componentDidMount => componentWillReceiveProps/shouldComponentUpdate/componentWillMount/componentWillUpdate/componentDidUpdate
 ```
 
 for Vue
-```
+```javascript
 beforeCreate => created => beforeMount => render
 => mounted => beforeUpdate => updated => destroyed => beforeDestroyed
 ```
@@ -24,12 +25,12 @@ beforeCreate => created => beforeMount => render
 Node端其实需要的就是组件的DOM结构，不需要交互逻辑，所以都是到render后得到DOM就结束了，只要在同构生命周期间要避免客户端代码的执行即可。
 
 for React
-```
+```javascript
 getDefaultProps => getInitialState => componentWillMount => render
 ```
 
 for Vue
-```
+```javascript
 beforeCreate => created => beforeMount => render
 ```
 
@@ -89,3 +90,19 @@ module.exports = function (vm,element){
     })
   }
 }
+```
+
+### State传递
+由于主要数据已经在服务端获取，所以客户端初始渲染数据只要获取服务端传递过来的数据就可以了，不再重新请求数据。
+
+关于服务端向客户端传递数据的方法大体也就一种，服务端包装好数据直接塞在html里面。
+方法一：
+在html里插入script标签将数据赋值给window的全局变量，我的个人网站做法就是如此，例如：
+```html
+<script>window.__INITIAL_STATE__ = ${ JSON.stringify(originState) }</script>
+```
+方法二:
+在html里插入dom将数据赋值给dom的属性，知乎就是这样做的，并在获取state后将dom删除掉，但通过html请求可以看到，例如：
+```html
+<div data-state="${ JSON.stringify(originState) }"></div>
+```
