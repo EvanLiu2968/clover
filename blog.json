@@ -65,6 +65,12 @@
           "src": "Node同构应用中服务端ES6+的兼容.md"
         },
         {
+          "title": "Shell脚本的基本介绍及应用",
+          "keywords": [ "Shell" ],
+          "createTime": "2018-05-10",
+          "src": "Shell脚本的基本介绍及应用.md"
+        },
+        {
           "title": "Node核心模块汇总",
           "keywords": [ "Node","核心模块" ],
           "createTime": "2017-10-05",
