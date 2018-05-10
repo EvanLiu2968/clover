@@ -39,11 +39,20 @@ loader.then((e)=>{
 }
 ```
 
-### AsyncLoader
+### `react-dynamic-loader`
 
-> 配合webpack打包的异步加载组件
+> 代码已抽取为公用组件并发布了npm包，github地址[EvanLiu2968/react-dynamic-loader](https://github.com/EvanLiu2968/react-dynamic-loader)
 
-代码已抽取为公用组件，地址[EvanLiu2968/react-asyncLoader](https://github.com/EvanLiu2968/react-asyncLoader)
+```bash
+# npm install
+npm i react-dynamic-loader --save
+```
+### Options
+options
+- `loader`  type: Function 如上Usage，返回Promise对象
+- `loading` type: Boolean || JSX 默认false不开启，当为JSX，在加载过程中以loading替代
+- `error`   type: Boolean || JSX 默认false不开启，当为JSX，在加载错误时error替代
+- `delay`   type: Number 默认200，加载完成后延迟200ms关闭loading
 
 ### Usage
 
@@ -91,10 +100,3 @@ chunk
 #### Demo
 
 [https://www.evanliu2968.com.cn](https://www.evanliu2968.com.cn/system/home)
-
-### Options
-
-- `loader`  type: Function 如上Usage，返回Promise对象
-- `loading` type: Boolean || JSX 默认false不开启，当为JSX，在加载过程中以loading替代
-- `error`   type: Boolean || JSX 默认false不开启，当为JSX，在加载错误时error替代
-- `delay`   type: Number 默认200，加载完成后延迟200ms关闭loading
