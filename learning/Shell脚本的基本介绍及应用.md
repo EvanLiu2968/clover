@@ -51,7 +51,7 @@ for 语句
 ```shell
 for loop in 1 2 3 4 5
 do
-    echo "The value is: $loop"
+  echo "The value is: $loop"
 done
 ```
 
@@ -60,8 +60,8 @@ while 语句
 int=1
 while(( $int<=5 ))
 do
-    echo $int
-    let "int++"
+  echo $int
+  let "int++"
 done
 ```
 case 语句
@@ -70,12 +70,12 @@ echo '请选择药丸，选择输入 blue 或 red'
 echo '请输入:'
 read pill
 case $pill in
-    blue)  echo '你选择了 蓝色药丸'
-    ;;
-    red)  echo '你选择了 红色药丸'
-    ;;
-    *)  echo '你没有选择药丸，你完蛋了！'
-    ;;
+  blue)  echo '你选择了 蓝色药丸'
+  ;;
+  red)  echo '你选择了 红色药丸'
+  ;;
+  *)  echo '你没有选择药丸，你完蛋了！'
+  ;;
 esac
 ```
 

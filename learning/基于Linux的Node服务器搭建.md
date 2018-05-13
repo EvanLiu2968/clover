@@ -1,8 +1,8 @@
 ## 基于Linux的Node服务器搭建
 
-> 个人网站[www.evanliu2968.com.cn](https:///www.evanliu2968.com.cn) 本来还想多花点时间做个管理系统，时间很紧，所以直接从Github获取我的markdown文档仓库。另外，吐槽下备案进度，说好的20个工作日，少一天，一个时辰，那都不能算20个工作日。
+> 个人网站[www.evanliu2968.com.cn](https:///www.evanliu2968.com.cn) 后续有时间再加上数据库做个管理系统，时间紧，所以直接从Github获取我的markdown文档仓库。
 
-简单介绍下网站构建，以Node作为服务器，`koa2` + `react server side render`，从腾讯云买的服务器1年及域名4年，我是选择的镜像系统是`CentOS 7`，搭建过程中主要用到了`node`、`pm2`、`nginx`、`git`, 后续加上`redis`, `mongodb`, `docker`.
+简单介绍下网站构建，以Node作为服务器，`koa2` + `react server side render`，从腾讯云买的服务器1年及域名4年，我是选择的镜像系统是`CentOS 7`，搭建过程中主要用到了`node`, `pm2`, `nginx`, `git`, 后续加上`redis`, `mongodb`, `docker`.
 
 ### Run it at cloud server
 
