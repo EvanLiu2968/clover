@@ -59,13 +59,16 @@ node 工具模块
 从对象中返回路径字符串，和 path.parse 相反。
 
 ### other
-- `http` / `https`
+- `http` `https`
 - `url`
+- `crypto`
+- `events`
+- `child_process`
+- `cluster`
 - `os`
 - `net`
 - `dns`
 - `domain`
-- `child_process`
 
 ### other module
 - http-request
@@ -83,11 +86,3 @@ async function getUserinfo(){
 }
 var userinfo = getUserinfo()
 ```
-
-### Node frame reference
-- Express
-- Koa
-- Egg
-- Thinkjs
-- Meteor
-- Feathers
