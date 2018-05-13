@@ -6,11 +6,11 @@
 
 Egg的生态相对还是比较好的，有阿里背书，已有很多Egg应用已上线生产验证过，我对此看好。
 
-我计划是把我当前网站[evanliu2968.com.cn](http://evanliu2968.com.cn)用Egg重构，目前首页、Photo、Blog已完成上线，至于管理系统本来不想做，不过我打算接入Mongodb、Redis和Docker，也算是练习吧。
+目前网站[evanliu2968.com.cn](http://evanliu2968.com.cn)已经用Egg重构，主要模块已完成，后续接入Mongodb/Mysql、Redis和Docker，用于保存后台管理数据及爬虫数据，也算是练习吧。
 
 我的网站以React为基础，有多单页`server side render`，也有`single page application`，所以第一步是构建webpack打包。
 
-我折腾好久，然后陷入被webpack支配的恐惧，最终搜了下有没有相关现成的脚手架，找到个不错的[easyWebpack](http://hubcarl.github.io/easywebpack/webpack/)。虽然做一些自定义配置还是有些小问题，终究还是能跑了，关于这个没有过多深入了解，自行看文档吧。
+我搜了下有没有相关现成的脚手架，找到个不错的[easyWebpack](http://hubcarl.github.io/easywebpack/webpack/)。虽然做一些自定义配置还是有些小问题，终究还是能跑了，后续有时间再自己实现一个构建脚手架，方便以后扩展。
 
 其实具体怎么开发，文档都写的很详细了，所以我先主要讲认为的几个优点，再大概的把结构梳理下。
 
