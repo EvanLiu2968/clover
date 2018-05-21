@@ -6,4 +6,4 @@
 
 `Ghost in the Shell`是攻壳机动队的原名，那么，第一篇就从关于电影推荐的分享开始。
 
-<img class="center-block" src="https://www.evanliu2968.com.cn/public/images/eagle.png" />
+<img style="display:block;margin:0 auto" src="https://www.evanliu2968.com.cn/public/images/eagle.png" />
