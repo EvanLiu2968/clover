@@ -4,6 +4,8 @@
 再写服务端代码的时候顺手一写就写了个`import`,然后就等着报错吧
 其实加入一些配置就可以在服务端写各种ES6+。
 
+ps: 这只是一个应用的思路，实际使用中还是不建议这样做，会存在一定的性能损失，并且易造成node端代码混乱，不够规范，得不偿失。
+
 ### 如何使用
 
 ES6+在服务端使用关键就是`babel`
@@ -29,8 +31,6 @@ require('babel-polyfill')
     "react",
     "es2015",
     "stage-0",
-    "stage-1",
-    "stage-3"
   ],
   "plugins": [
     [
@@ -55,9 +55,7 @@ require('babel-polyfill')
   "babel-polyfill": "^6.26.0",
   "babel-preset-es2015": "^6.5.0",
   "babel-preset-react": "^6.5.0",
-  "babel-preset-stage-0": "^6.5.0",
-  "babel-preset-stage-1": "^6.16.0",
-  "babel-preset-stage-3": "^6.5.0",
+  "babel-preset-stage-0": "^6.5.0"
 }
 ```
 react是react server side render是服务端需要解析jsx语法，其实既然做ssr，复用客户端的配置就OK了

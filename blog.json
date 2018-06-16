@@ -53,6 +53,12 @@
           "src": "Webpack打包模块异步加载方案及react实现.md"
         },
         {
+          "title": "Webpack4的实践应用",
+          "keywords": [ "webpack4" ],
+          "createTime": "2018-06-17",
+          "src": "Webpack4的实践应用.md"
+        },
+        {
           "title": "React和Vue同构组件的两端兼容",
           "keywords": [ "同构","React","Vue" ],
           "createTime": "2018-03-27",
