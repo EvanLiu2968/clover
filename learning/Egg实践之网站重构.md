@@ -12,7 +12,7 @@ Egg的生态相对还是比较好的，有阿里背书，已有很多Egg应用�
 
 我搜了下有没有相关现成的脚手架，找到个不错的[easyWebpack](http://hubcarl.github.io/easywebpack/webpack/)。虽然做一些自定义配置还是有些小问题，终究还是能跑了，后续有时间再自己实现一个构建脚手架，方便以后扩展。
 
-后面有通过webpack4实现的一个脚手架及node服务端，server端也是借鉴了部分egg的设计思想写的，写的很简洁，可以借鉴下，github地址：[https://github.com/EvanLiu2968/webpack-react-ssr](https://github.com/EvanLiu2968/webpack-react-ssr)
+后面有通过webpack4实现的一个脚手架及node服务端，server端也是借鉴了部分egg的设计思想写的，写的很简洁，可以借鉴下，github地址：[https://github.com/EvanLiu2968/webpack4-plus-koa](https://github.com/EvanLiu2968/webpack4-plus-koa)
 
 其实具体怎么开发，文档都写的很详细了，所以我先主要讲认为的几个优点，再大概的把结构梳理下。
 
