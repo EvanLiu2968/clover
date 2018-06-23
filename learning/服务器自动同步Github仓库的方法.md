@@ -68,9 +68,22 @@ function runCmd(cmd, args, callback) {
 #!/bin/bash
 
 # target folder: 与整个项目同级的clover
-cd ../clover
+if [ ! -x "../scripts/pullClover.sh" ];then
+echo 'please enter: sodu chmod 777 ../scripts/pullClover.sh'
+fi
 
-# pull clover
+if [ ! -d "../clover" ];then
+# 没有则创建文件夹，拉取github仓库
+echo 'clover is not found, start to create clover files...'
+mkdir ../clover
+cd ../clover
+git init
+git remote add clover https://github.com/EvanLiu2968/clover.git
+git fetch clover
+git checkout master
+else
+cd ../clover
 git pull
+fi
 ```
 关于shell有非常多的各种妙用，以后有时间再来详细介绍下
