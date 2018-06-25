@@ -6,11 +6,20 @@
 
 但随之带来一个问题，如果我更新文档库，还得登录服务器拉取文档库最新文档，这得浪费几分钟时间，肯定不能忍。
 
-所以我找了几种方法
-- 方法一：写一个定时器，定时每过一段时间在目标仓库执行`git pull`
-- 方法二：部署Git Hooks，当监听到`push`事件时在目标仓库执行`git pull`，我搜了一个别人的教程[Git Hooks 部署教程](https://segmentfault.com/a/1190000003836345)
+解决方案
+- 部署Git Hooks，当监听到`push`事件时Git会执行`.git/hooks`中对应的hook脚本 [Git 钩子介绍](https://www.git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90)
 
-不过，我的仓库是托管在Github上的，Github已经贴心的做好了这个Hooks，[Github Webhooks官方文档](https://developer.github.com/webhooks/)，下面主要就来介绍Github Webhooks如何使用。
+大致就是修改`.git/hooks`中的`.sample` 结尾的示例文件，去掉`.sample`，写入对应钩子要执行的shell脚本，git事件发生时会执行同名的shell脚本,`post-receive`示例：
+```shell
+#!/bin/sh
+export GIT_WORK_DIR=/root/evanliu2968
+unset GIT_DIR
+cd $GIT_WORK_DIR
+git reset --hard
+git pull origin master
+```
+
+我的仓库是托管在Github上的，我这里使用了Github的Hooks接口，[Github Webhooks官方文档](https://developer.github.com/webhooks/)，下面主要就来介绍Github Webhooks如何使用。
 
 ### Github仓库Webhooks设置
 
