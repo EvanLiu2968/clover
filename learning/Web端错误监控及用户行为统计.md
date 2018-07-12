@@ -15,4 +15,4 @@
 
 一张图抛砖引玉
 
-<img style="display:block;margin:0 auto" src="https://pic4.zhimg.com/24050151892b95a21aea00d9bbd4222a_r.jpg" />
+<img style="display:block;margin:0 auto" src="http://wx2.sinaimg.cn/mw690/df3fcedbgy1ft7cpcpbftj20h536oqjg.jpg" />
