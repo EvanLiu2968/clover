@@ -10,14 +10,25 @@
 
 for React
 ```javascript
-getDefaultProps => getInitialState => componentWillMount => render
-=> componentDidMount => componentWillReceiveProps/shouldComponentUpdate/componentWillMount/componentWillUpdate/componentDidUpdate
+getDefaultProps ⤵️
+getInitialState ⤵️
+componentWillMount ⤵️
+render ⤵️
+componentDidMount ⤵️
+componentWillReceiveProps / shouldComponentUpdate / componentWillMount / componentWillUpdate / componentDidUpdate
 ```
 
 for Vue
 ```javascript
-beforeCreate => created => beforeMount => render
-=> mounted => beforeUpdate => updated => destroyed => beforeDestroyed
+beforeCreate ⤵️
+created ⤵️
+beforeMount ⤵️
+render ⤵️
+mounted ⤵️
+beforeUpdate ⤵️
+updated ⤵️
+destroyed ⤵️
+beforeDestroyed
 ```
 
 ### Node端同构生命周期
@@ -26,12 +37,18 @@ Node端其实需要的就是组件的DOM结构，不需要交互逻辑，所以�
 
 for React
 ```javascript
-getDefaultProps => getInitialState => componentWillMount => render
+getDefaultProps ⤵️
+getInitialState ⤵️
+componentWillMount ⤵️
+render
 ```
 
 for Vue
 ```javascript
-beforeCreate => created => beforeMount => render
+beforeCreate ⤵️
+created ⤵️
+beforeMount ⤵️
+render
 ```
 
 ### 通用Render方法
@@ -55,8 +72,10 @@ module.exports = function (jsx,element){
     }
     DOMRender.render(jsx,element)
   } else {
-    // return DOMRender.renderToStaticMarkup(jsx) //输入纯html
-    return DOMRender.renderToString(jsx) //输出带checkSum标记的html，检测到变化时才更新dom，具体看各个版本说明
+    // 输入纯html
+    // return DOMRender.renderToStaticMarkup(jsx)
+    // 或者，输出带checkSum标记的html，检测到变化时才更新dom，具体看各个版本说明
+    return DOMRender.renderToString(jsx)
   }
 }
 ```
@@ -78,13 +97,13 @@ module.exports = function (vm,element){
   } else {
     const DOMRender = require('vue-server-renderer').createRenderer()
     // 返回Promise可以配合await变成同步
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve,reject)⤵️{
       // Vue以回调的方式返回html有点坑
-      DOMRender.renderToString(vm, (err, html) => {
+      DOMRender.renderToString(vm, (err, html) ⤵️ {
         if (err){
           reject(err)
         }else{
-          resolve(html) // => <div data-server-rendered="true">Hello World</div>
+          resolve(html) // ⤵️ <div data-server-rendered="true">Hello World</div>
         }
       })
     })
