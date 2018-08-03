@@ -1,4 +1,4 @@
-# 分享
+## 分享
 
 > Share the Ghost in the Shell
 

@@ -160,6 +160,12 @@
           "keywords": [ "摄影","风格" ],
           "createTime": "2018-05-12",
           "src": "风格化摄影.md"
+        },
+        {
+          "title": "工具清单",
+          "keywords": [ "tool","mainfest" ],
+          "createTime": "2018-08-01",
+          "src": "工具清单.md"
         }
       ]
     },
