@@ -95,6 +95,18 @@
           "src": "Docker部署Web应用.md"
         },
         {
+          "title": "装饰器Decorator",
+          "keywords": [ "decorator" ],
+          "createTime": "2018-08-04",
+          "src": "装饰器Decorator.md"
+        },
+        {
+          "title": "生成器Generator",
+          "keywords": [ "generator" ],
+          "createTime": "2018-08-04",
+          "src": "生成器Generator.md"
+        },
+        {
           "title": "Node核心模块汇总",
           "keywords": [ "Node","核心模块" ],
           "createTime": "2017-10-05",
