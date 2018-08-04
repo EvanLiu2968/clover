@@ -21,7 +21,7 @@ var myModuel=(function(){
   return {}
 })();
 
-// 示例二：ES6 模块
+// 示例二：ES6(commonjs)模块
 var myModuel=function(){};
 moduel.export=myModuel;
 export default myModuel
@@ -34,7 +34,9 @@ export default myModuel
 import React from 'react';
 class myModuel extends React.Component {
   constructor() {};
-  render() {};
+  render() {
+    return <div></div>
+  };
 }
 // ES5
 function Component (props){
@@ -42,7 +44,7 @@ function Component (props){
 }
 Component.prototype={
   render:function(){
-    return '<div></div>'
+    return <div></div>
   }
 }
 ```
@@ -50,24 +52,17 @@ Component.prototype={
 #### 发布订阅模式
 
 ```javascript
-var myApp=new Vue({
-  el:'#app',
-  data:function(){
-    return {
-      name:'evanliu'
-    }
-  },
-  method:{
-    changeName:function(name){
-      this.$emit('nameChanged',{name:'evanliu2968'}) // dispatch event
-    }
-  },
-  mounted:function(){
-    this.$on('nameChanged',function(event,args){ // subscribe event
-      this.name=args.name;
-    })
-  }
+const Event = require('event');
+
+class App extends Event {
+  constructor() {};
+}
+
+const app = new App()
+app.on('thirsty', () => {
+  console.log('我要喝水')
 });
+app.emit('thirsty'); // 输出 '我要喝水'
 ```
 #### 单例模式
 

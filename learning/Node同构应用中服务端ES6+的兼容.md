@@ -1,7 +1,7 @@
 ## node同构应用中ES6的使用
 
 写客户端代码时已经习惯了各种ES6的语法，`import`, `export`...
-再写服务端代码的时候顺手一写就写了个`import`,然后就等着报错吧
+但是在服务端部分语法不经过变异的话会导致执行错误，
 其实加入一些配置就可以在服务端写各种ES6+。
 
 ps: 这只是一个应用的思路，实际使用中还是不建议这样做，会存在一定的性能损失，并且易造成node端代码混乱，不够规范，得不偿失。
@@ -24,7 +24,7 @@ require('babel-polyfill')
 // follow is your main code.
 ```
 
-有了这个还不能正确执行, 还缺少`.babelrc`配置文件
+有了这个还不能正确执行, 还缺少`.babelrc`配置文件,可以自行加入转译配置，例如：
 ```json
 {
   "presets": [
@@ -63,17 +63,17 @@ react是react server side render是服务端需要解析jsx语法，其实既然
 `node index.js` 试运行, success!
 
 * 需要注意的一个点是，入口文件已配置好babel,但入口文件不能有`import`这些语法，
-因为`import`会在`require`之前执行，入口文件就老老实实用`require`吧
+因为`import`会在`require`之前执行，入口文件就只能用`require`了
 
 ### 其他
 
-客户端使用webpack时会使用alias文件别名的配置
+客户端使用webpack时会使用`alias`文件别名的配置
 既然要同构复用一套代码，这个配置在服务端也可以解决
 跟上面的babel模块一样，在入口文件引入
 ```javascript
 require('app-module-path').addPath(__dirname)
 ```
-`__dirname`是当前执行文件的路径,这样可以把路径统计的文件名作为require的alias
+`__dirname`是当前执行文件的路径,这样可以把根目录下的的文件或文件夹名作为require的`alias`
 
 ```
 src/...
