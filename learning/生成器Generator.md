@@ -30,3 +30,5 @@ for (var x of f) {
   console.log(x); // 依次输出2, 3, 4
 }
 ```
+
+### `co`

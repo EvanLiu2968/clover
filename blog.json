@@ -107,6 +107,18 @@
           "src": "Typescript的编译配置及基础用法.md"
         },
         {
+          "title": "解决跨域问题的几种方案",
+          "keywords": [ "跨域" ],
+          "createTime": "2018-08-05",
+          "src": "解决跨域问题的几种方案.md"
+        },
+        {
+          "title": "Http长轮询和短轮询",
+          "keywords": [ "长轮询", "websocket" ],
+          "createTime": "2018-08-05",
+          "src": "Http长轮询和短轮询.md"
+        },
+        {
           "title": "Mongodb和Mysql的Node实践",
           "keywords": [ "Mongodb","Mysql","Node" ],
           "createTime": "2018-05-12",
