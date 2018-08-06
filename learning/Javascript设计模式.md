@@ -26,6 +26,8 @@ var myModuel=function(){};
 moduel.export=myModuel;
 export default myModuel
 ```
+模块模式本质是对闭包的一个应用，由于Javascript语言特有的"链式作用域"结构（chain scope），子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。
+简单的说法就是函数外部的变量作用域函数内部可以获取，而函数内部的变量作用域对外是不可获取的，违反这个规则的基本就是闭包了
 
 #### 原型模式
 
