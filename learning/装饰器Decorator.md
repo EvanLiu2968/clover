@@ -70,14 +70,26 @@ class Target {
 
 - 装饰器只能用于类和类的方法，不可用于函数，因为函数存在函数提升，class类似于`const Target = function(){}`
 
-### `core-decorators`
+### 第三方模块
 
-core-decorators.js是一个第三方模块，提供了几个常见的装饰器，通过它可以更好地理解装饰器。
+- `core-decorators` 提供了几个常见的装饰器，通过它可以更好地理解装饰器
+- `lodash-decorators` Decorators using lodash functions
 
 ```javascript
-/*
- * https://github.com/jayphelps/core-decorators
- */
-import { autobind, readonly, override, deprecate, enumerable, suppressWarnings } from 'core-decorators';
+// import { autobind, readonly, override, deprecate } from 'core-decorators';
+import Debounce from 'lodash-decorators/debounce';
+import BindAll from 'lodash-decorators/bindAll';
 
+@BindAll()Web
+class Search {
+  constructor(ajax) {
+    this.input = '';
+    this.httpService = ajax;
+  }
+ 
+  @Debounce(100)
+  post() {
+    return this.httpService.post(this.input);
+  }
+}
 ```
