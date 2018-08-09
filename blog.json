@@ -65,6 +65,12 @@
           "src": "React和Vue同构组件的两端兼容.md"
         },
         {
+          "title": "React和Vue高阶组件",
+          "keywords": [ "高阶组件","React","Vue" ],
+          "createTime": "2018-04-08",
+          "src": "React和Vue高阶组件.md"
+        },
+        {
           "title": "Node同构应用中服务端ES6+的兼容",
           "keywords": [ "同构","ES6" ],
           "createTime": "2018-03-21",
@@ -143,16 +149,16 @@
           "src": "Web端错误监控及用户行为统计.md"
         },
         {
-          "title": "Node核心模块汇总",
-          "keywords": [ "Node","核心模块" ],
-          "createTime": "2017-10-05",
-          "src": "Node核心模块汇总.md"
-        },
-        {
           "title": "事件模型及其构建",
           "keywords": [ "事件模型","event loop" ],
           "createTime": "2017-10-03",
           "src": "事件模型及其构建.md"
+        },
+        {
+          "title": "Node核心模块汇总",
+          "keywords": [ "Node","核心模块" ],
+          "createTime": "2017-10-05",
+          "src": "Node核心模块汇总.md"
         },
         {
           "title": "Javascript设计模式",
