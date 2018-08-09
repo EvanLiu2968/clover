@@ -32,3 +32,47 @@ for (var x of f) {
 ```
 
 ### `co`
+
+co实现了对generator的封装，实现了类似`async/await`的功能，基于Node的话一般会安装node8版本以上来获得`async/await`的支持。
+
+找的示例大概如下：
+```javascript
+// 大致实现
+function isGeneratorFunction(obj) {
+  return obj && obj.constructor && 'GeneratorFunction' === obj.constructor.name
+}
+function co(GenFunc) {
+  if(!isGeneratorFunction(GenFunc)){
+    throw new Error('the arguments required be a generatorFunction.')
+  }
+  return function(cb) {
+    var gen = GenFunc()
+    next()
+    function next(err, args) {
+      if (err) {
+        cb(err)
+      } else {
+        if (gen.next) {
+          var ret = gen.next(args)
+          if (ret.done) {
+            cb && cb(null, args)
+          } else {
+            ret.value(next)
+          }
+        }
+      }
+    }
+  }
+}
+// co的包装
+co(function* () {
+  var a
+  a = yield delay(200) // 200
+  a = yield delay(a + 100) // 300
+  a = yield delay(a + 100) // 400
+})(function(err, data) {
+  if (!err) {
+    console.log(data) // print 400
+  }
+})
+```

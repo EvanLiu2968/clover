@@ -80,7 +80,7 @@ class Target {
 import Debounce from 'lodash-decorators/debounce';
 import BindAll from 'lodash-decorators/bindAll';
 
-@BindAll()Web
+@BindAll()
 class Search {
   constructor(ajax) {
     this.input = '';

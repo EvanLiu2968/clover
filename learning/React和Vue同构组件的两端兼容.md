@@ -1,54 +1,47 @@
 ## React和Vue同构组件的两端兼容
 
-前端框架原本多是用于是天然适合SPA的类管理系统，随着现在Node体系的完善及多样化的需求，越来越多的项目开始开始以Node作为服务器，React和Vue同构应用越来越流行，而同构就需要一套代码兼容Node和浏览器两端，所以介绍下同构组件如何做多端的兼容。
+前端框架原本多是用于是天然适合SPA的类管理系统，随着现在Node体系的完善及多样化的需求，项目开始以Node作为服务器，既使用服务端渲染保证首屏的加载速度及SEO，又能享受到组件化开发带来的便利，React和Vue同构应用也较常见了。而同构就需要一套代码兼容Node和浏览器两端，所以介绍下同构组件如何做多端的兼容。
 
 兼容处理就在于两端组件执行的生命周期不尽相同，注意在node同构周期避免使用window操作即可。
 
-### 浏览器端生命周期
+### 浏览器端和Node端的生命周期
 
-浏览器端组件的生命周期就是组件的完整生命周期，这里随意列了下。
+浏览器端组件的生命周期就是组件的完整生命周期，Node端其实需要的就是组件的DOM结构，不需要交互逻辑，所以都是到render后得到DOM就结束了，只要在同构生命周期间要避免客户端代码的执行即可。
 
 for React
 ```javascript
-getDefaultProps ⤵️
-getInitialState ⤵️
-componentWillMount ⤵️
-render ⤵️
-componentDidMount ⤵️
+getDefaultProps
+⇩
+getInitialState
+⇩
+componentWillMount
+⇩
+render //服务端渲染在此处结束
+⇩
+componentDidMount
+⇩
 componentWillReceiveProps / shouldComponentUpdate / componentWillMount / componentWillUpdate / componentDidUpdate
 ```
 
 for Vue
 ```javascript
-beforeCreate ⤵️
-created ⤵️
-beforeMount ⤵️
-render ⤵️
-mounted ⤵️
-beforeUpdate ⤵️
-updated ⤵️
-destroyed ⤵️
+beforeCreate
+⇩
+created
+⇩
+beforeMount
+⇩
+render //服务端渲染在此处结束
+⇩
+mounted
+⇩
+beforeUpdate
+⇩
+updated
+⇩
+destroyed
+⇩
 beforeDestroyed
-```
-
-### Node端同构生命周期
-
-Node端其实需要的就是组件的DOM结构，不需要交互逻辑，所以都是到render后得到DOM就结束了，只要在同构生命周期间要避免客户端代码的执行即可。
-
-for React
-```javascript
-getDefaultProps ⤵️
-getInitialState ⤵️
-componentWillMount ⤵️
-render
-```
-
-for Vue
-```javascript
-beforeCreate ⤵️
-created ⤵️
-beforeMount ⤵️
-render
 ```
 
 ### 通用Render方法
@@ -112,6 +105,7 @@ module.exports = function (vm,element){
 ```
 
 ### State传递
+
 由于主要数据已经在服务端获取，所以客户端初始渲染数据只要获取服务端传递过来的数据就可以了，不再重新请求数据。
 
 关于服务端向客户端传递数据的方法大体也就一种，服务端包装好数据直接塞在html里面。
