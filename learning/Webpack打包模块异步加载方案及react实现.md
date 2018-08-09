@@ -14,6 +14,8 @@ const Component = getComponent((callback) => {
     callback(null, require("./component").default);
   }, 'chunk-name');
 });
+// vue-router v3
+const Login = resolve => require.ensure([], () => resolve(require('../views/layout/Login')), 'login');
 ```
 
 可使用该方式实现AsyncLoader组件，示例在`Usage method 2`。
@@ -41,7 +43,7 @@ loader.then((e)=>{
 
 ### `react-dynamic-loader`
 
-> 代码已抽取为公用组件并发布了npm包，github地址[EvanLiu2968/react-dynamic-loader](https://github.com/EvanLiu2968/react-dynamic-loader)
+> 代码已抽取为公用组件，已同步至npm，github地址[EvanLiu2968/react-dynamic-loader](https://github.com/EvanLiu2968/react-dynamic-loader)
 
 ```bash
 # npm install
