@@ -11,8 +11,11 @@ TypeScript是ES6的超集，相对于ES6，TypeScript最大的改善是增加了
 
 跟babel转编译JS代码有点类似，例如：
 ```bash
- npm install -g typescript
- tsc hello.ts
+npm install -g typescript
+tsc hello.ts
+ # 或者直接使用ts-node代替node执行应用
+npm install -g ts-node
+ts-node app.ts
 ```
 
 ### TypeScript的基本类型系统
