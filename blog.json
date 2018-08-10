@@ -65,10 +65,10 @@
           "src": "React和Vue同构组件的两端兼容.md"
         },
         {
-          "title": "React和Vue高阶组件",
+          "title": "React和Vue组件的多种形态",
           "keywords": [ "高阶组件","React","Vue" ],
           "createTime": "2018-04-08",
-          "src": "React和Vue高阶组件.md"
+          "src": "React和Vue组件的多种形态.md"
         },
         {
           "title": "Node同构应用中服务端ES6+的兼容",
