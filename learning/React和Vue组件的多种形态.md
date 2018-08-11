@@ -154,3 +154,5 @@ function Message(props) {
 需要注意下`React.createElement(Component,props)`的这种创建形式，而不是`new Component(props)`
 
 ### Vue组件
+
+- [探索Vue高阶组件](http://hcysun.me/2018/01/05/%E6%8E%A2%E7%B4%A2Vue%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6/)
