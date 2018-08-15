@@ -54,7 +54,7 @@ Component.prototype={
 #### 发布订阅模式
 
 ```javascript
-const Event = require('event');
+const Event = require('events');
 
 class App extends Event {
   constructor() {};

@@ -1,17 +1,35 @@
 ## Node核心模块汇总
 
-### Node global
+### 模块内全局变量
 - `__filename`
 - `__dirname`
-- `setTimeout/clearTimeout/setInterval/clearInterval`
-- `console`
-- `process`
-- `Process`
+- `exports`, `module`, `require()`
 
-## Node module (default)
+### process
+- `process.env`
+- `process.argv`
+- `process.cwd()`
+- `process.exit([code])` 成功结束：`process.exit(0)`
+- `process.nextTick(callback[, ...args])` 相当于`setImmediate`
 
-### util
-node 工具模块
+### events
+核心模块，基本基于事件模型的模块都继承于它，例如：`Stream`, `fs`, `http`, `koa`等
+
+- `emitter.off(eventName, listener)`
+- `emitter.on(eventName, listener)`
+- `emitter.once(eventName, listener)`
+- `emitter.addListener(eventName, listener)`
+- `emitter.prependListener(eventName, listener)`
+- `emitter.prependOnceListener(eventName, listener)`
+- `emitter.removeAllListeners([eventName])`
+- `emitter.removeListener(eventName, listener)`
+- `emitter.setMaxListeners(n)`
+- `emitter.rawListeners(eventName)`
+- `emitter.emit(eventName[, ...args])`
+- `emitter.eventNames()`
+- `emitter.getMaxListeners()`
+- `emitter.listenerCount(eventName)`
+- `emitter.listeners(eventName)`
 
 ### fs
 - `fs.readFile()`
@@ -59,30 +77,12 @@ node 工具模块
 从对象中返回路径字符串，和 path.parse 相反。
 
 ### other
-- `http` `https`
+- `cluster`
+- `child_process`
+- `http`, `https`
 - `url`
 - `crypto`
-- `events`
-- `child_process`
-- `cluster`
 - `os`
 - `net`
 - `dns`
 - `domain`
-
-### other module
-- http-request
-
-### async/await
-```javascript
-const axios = require('axios')
-async function getUserinfo(){
-  var res = await axios.get('/getUserinfo')
-  if(res.code === '00'){
-    return res.data
-  } else {
-    return {}
-  }
-}
-var userinfo = getUserinfo()
-```
