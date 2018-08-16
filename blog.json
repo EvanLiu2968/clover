@@ -95,6 +95,12 @@
           "src": "正则表达式Regex.md"
         },
         {
+          "title": "ES6的class的使用",
+          "keywords": [ "class", "static" ],
+          "createTime": "2018-08-12",
+          "src": "ES6的class的使用.md"
+        },
+        {
           "title": "装饰器Decorator",
           "keywords": [ "decorator" ],
           "createTime": "2018-08-01",
