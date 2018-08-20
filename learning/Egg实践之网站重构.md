@@ -1,8 +1,6 @@
 ## Egg实践之网站重构
 
-前几天看了头号玩家，作为资深西方电影影迷，斯皮尔伯格的这部彩蛋，不能错过。
-
-看完彩蛋电影，马上又来折腾另一只蛋了。毫无疑问，Koa是Node服务端框架首选，不过Koa做了基础部分，实际开发还是得大量依赖第三方中间件和插件，避免不了项目的整体混乱。要避免混乱，首先就得制定规范，规范怎么定，首先得看生态的主流规范。
+毫无疑问，Koa是Node服务端框架首选，不过Koa做了基础部分，实际开发还是得大量依赖第三方中间件和插件，避免不了项目的整体混乱。要避免混乱，首先就得制定规范，规范怎么定，首先得看生态的主流规范。
 
 Egg的生态相对还是比较好的，有阿里背书，已有很多Egg应用已上线生产验证过，我对此看好。
 
@@ -10,9 +8,10 @@ Egg的生态相对还是比较好的，有阿里背书，已有很多Egg应用�
 
 我的网站以React为基础，有多单页`server side render`，也有`single page application`，所以第一步是构建webpack打包。
 
-我搜了下有没有相关现成的脚手架，找到个不错的[easyWebpack](http://hubcarl.github.io/easywebpack/webpack/)。虽然做一些自定义配置还是有些小问题，终究还是能跑了，后续有时间再自己实现一个构建脚手架，方便以后扩展。
+为节省时间，我采用了egg生态封装好的现成的脚手架，虽然做一些自定义配置还是有些小问题，终究还是能跑了，后续有时间再自己实现一个构建脚手架，方便以后扩展。
 
-后面有通过webpack4实现的一个脚手架及node服务端，server端也是借鉴了部分egg的设计思想写的，写的很简洁，可以借鉴下，github地址：[https://github.com/EvanLiu2968/webpack4-plus-koa](https://github.com/EvanLiu2968/webpack4-plus-koa)
+后面有通过webpack4实现的一个脚手架及node服务端，server端也是借鉴了部分egg的设计思想写的，写的很简洁，可以借鉴下，
+github地址：[https://github.com/EvanLiu2968/webpack4-plus-koa](https://github.com/EvanLiu2968/webpack4-plus-koa)
 
 其实具体怎么开发，文档都写的很详细了，所以我先主要讲认为的几个优点，再大概的把结构梳理下。
 
@@ -48,11 +47,51 @@ Egg的生态相对还是比较好的，有阿里背书，已有很多Egg应用�
 
 - view
 
-模板层，可放置html模板，我这里使用了`egg-view-react-ssr`，全是`.js`
+视图层，可放置html或其他模板，我这里使用了`egg-view-react-ssr`，全是`.js`
 
 - 其他
 
-Egg官方文档是很好的学习资料，首先了解它的整体设计规范，然后可以根据这些设计规范自己尝试实践出一个简版的egg，不了解的地方可以去查看egg的源码，通读源码能发现许多文档上没有的知识，当然，时间不够多的话，最好是带着问题来阅读源码，比如egg的基础核心是通过扩展koa的`application` `context` `request` `response`四个类对象，`controller` `service`也是继承公用的基类而来。
+Egg官方文档是很好的学习资料，首先了解它的整体设计规范，然后可以根据这些设计规范自己尝试实践出一个简版的egg，不了解的地方可以去查看egg的源码，通读源码能发现许多文档上没有的知识。
+
+比如egg的基础核心是通过扩展koa的`application` `context` `request` `response`四个类对象，`controller` `service`也是继承公用的基类而来，将其挂载在`application`或`context`上，以下示例中Loader的加载过程部分的源码是理解egg生命周期关键的一部分，建议去深入阅读。
+```javascript
+class AppWorkerLoader extends EggLoader {
+
+  /**
+   * loadPlugin first, then loadConfig
+   * @since 1.0.0
+   */
+  loadConfig() {
+    this.loadPlugin();
+    super.loadConfig();
+  }
+
+  /**
+   * Load all directories in convention
+   * @since 1.0.0
+   */
+  load() {
+    // app > plugin > core
+    this.loadApplicationExtend();
+    this.loadRequestExtend();
+    this.loadResponseExtend();
+    this.loadContextExtend();
+    this.loadHelperExtend();
+
+    // app > plugin
+    this.loadCustomApp();
+    // app > plugin
+    this.loadService();
+    // app > plugin > core
+    this.loadMiddleware();
+    // app
+    this.loadController();
+    // app
+    this.loadRouter(); // Dependent on controllers
+  }
+
+}
+```
 
 另外，遇到某些问题时的解决流程，首先查阅官方文档，Github的README，还没有找到可适当搜索答案，再没有就去阅读相关源码吧。之前我遇到一个egg-security的一些问题，后面也是阅读相关源码才知道的，基本也知道了这个扩展的一个运行机制，配置如何运行。测试代码写得很齐全，结构规范、清晰，但文档却只表达了一部分，估计作者也是希望别人能来看看源码吧。
 
