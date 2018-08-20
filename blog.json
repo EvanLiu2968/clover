@@ -71,6 +71,18 @@
           "src": "React和Vue组件的多种形态.md"
         },
         {
+          "title": "React和Vue组件的通信",
+          "keywords": [ "组件通信" ],
+          "createTime": "2018-05-09",
+          "src": "React和Vue组件的通信.md"
+        },
+        {
+          "title": "状态管理库的选用",
+          "keywords": [ "mobx","redux","vuex" ],
+          "createTime": "2018-05-11",
+          "src": "状态管理库的选用.md"
+        },
+        {
           "title": "Node同构应用中服务端ES6+的兼容",
           "keywords": [ "同构","ES6" ],
           "createTime": "2018-03-21",
