@@ -95,24 +95,6 @@
           "src": "Node同构应用中服务端ES6+的兼容"
         },
         {
-          "title": "Shell脚本的基本介绍及应用",
-          "keywords": [ "Shell" ],
-          "createTime": "2018-05-10",
-          "src": "Shell脚本的基本介绍及应用"
-        },
-        {
-          "title": "Git常用命令",
-          "keywords": [ "Git" ],
-          "createTime": "2018-07-20",
-          "src": "Git常用命令"
-        },
-        {
-          "title": "正则表达式Regex",
-          "keywords": [ "正则", "Regex" ],
-          "createTime": "2018-03-26",
-          "src": "正则表达式Regex"
-        },
-        {
           "title": "ES6的class的使用",
           "keywords": [ "class", "static" ],
           "createTime": "2018-08-12",
@@ -143,16 +125,34 @@
           "src": "解决跨域问题的几种方案"
         },
         {
+          "title": "自动化测试方案",
+          "keywords": [ "jest", "mocha", "assert" ],
+          "createTime": "2018-08-08",
+          "src": "自动化测试方案"
+        },
+        {
           "title": "Http长轮询和短轮询",
           "keywords": [ "长轮询", "websocket" ],
           "createTime": "2018-08-05",
           "src": "Http长轮询和短轮询"
         },
         {
-          "title": "自动化测试方案",
-          "keywords": [ "jest", "mocha", "assert" ],
-          "createTime": "2018-08-08",
-          "src": "自动化测试方案"
+          "title": "Shell脚本的基本介绍及应用",
+          "keywords": [ "Shell" ],
+          "createTime": "2018-05-10",
+          "src": "Shell脚本的基本介绍及应用"
+        },
+        {
+          "title": "Git常用命令",
+          "keywords": [ "Git" ],
+          "createTime": "2018-07-20",
+          "src": "Git常用命令"
+        },
+        {
+          "title": "正则表达式Regex",
+          "keywords": [ "正则", "Regex" ],
+          "createTime": "2018-03-26",
+          "src": "正则表达式Regex"
         },
         {
           "title": "Mongodb和Mysql的Node实践",

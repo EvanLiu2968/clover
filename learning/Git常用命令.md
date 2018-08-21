@@ -1,6 +1,5 @@
 ## Git常用命令
 
-> 推荐
 - [整理的Git常用命令清单.md](https://github.com/jaywcjlove/handbook/blob/master/other/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95.md)
 
 基本命令需要了解，不过实际应用还是建议使用图形化工具SourceTree、TortoiseGit之类，工具本就是为了使用方便

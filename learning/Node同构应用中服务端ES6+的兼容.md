@@ -10,8 +10,6 @@ ps: 这只是一个应用的思路，实际使用中还是不建议这样做，�
 
 ES6+在服务端使用关键就是`babel`
 
-Talk is cheap, show the code.
-
 首先安装node模块
 
 `npm i babel-core babel-polyfill --save`
