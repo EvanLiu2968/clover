@@ -74,13 +74,10 @@ yum install nginx
 
 start nginx (when the port less than `1024`, it must be runned as sudo, otherwise throw `permission denied`)
 ```bash
-sudo nginx
-```
-stop nginx
-```bash
-sudo nginx -s quit
-# or force stop
-sudo nginx -s stop`
+sudo nginx   # 启动
+sudo nginx -s quit  # 退出
+sudo nginx -s reload  # 重启
+sudo nginx -t  # 检查Nginx配置是否正确
 ```
 
 #### Nginx conf setting

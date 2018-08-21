@@ -111,7 +111,6 @@ client.on('close', function () {
 
 [easy-monitor文档](http://easy-monitor.cn/document)
 
-这个我还加了作者好友，在这里给个推广，使用很简单
 ```javascript
 // monitor进程界面: http://localhost:12333  文档:http://easy-monitor.cn/document
 const easyMonitor = require('easy-monitor');
@@ -131,7 +130,7 @@ myApp()
 连接alinode性能平台
 `nohup agenthub yourconfig.json &`
 
-执行 node App <br/>
+执行 node App <br/>Nginx
 `ENABLE_NODE_LOG=YES node index.js` <br/>
 或者使用pm2启动 <br/>
 `ENABLE_NODE_LOG=YES pm2 start index.js --name pcfed`
