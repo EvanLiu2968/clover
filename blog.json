@@ -17,6 +17,12 @@
           "src": "基于Linux的Node服务器搭建"
         },
         {
+          "title": "Nginx基本配置及部署",
+          "keywords": [ "Nginx配置" ],
+          "createTime": "2018-03-19",
+          "src": "Nginx基本配置及部署"
+        },
+        {
           "title": "服务器自动同步Github仓库的方法",
           "keywords": [ "webhooks","github","shell" ],
           "createTime": "2018-03-20",
