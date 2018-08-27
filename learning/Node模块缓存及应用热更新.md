@@ -16,6 +16,41 @@ module.exports = function(){
 }
 ```
 
+### Node模块实现原理
+Node模块加载遵循commonjs规范，实现为`commonjs2`，详情可见文档[https://nodejs.org/docs/latest/api/modules.html](https://nodejs.org/docs/latest/api/modules.html#modules_the_module_wrapper)
+
+```javascript
+/*
+ * Before a module's code is executed, Node.js will wrap it with a function wrapper that looks like the following:
+ */
+(function(exports, require, module, __filename, __dirname) {
+// Module code actually lives in here
+});
+```
+由此可知，在我们书写的代码中可以把以上5个变量当成全局变量
+```javascript
+exports.keys = 'evanliu'
+module.exports = {
+  key: 'evanliu'
+}
+//但不能写成exports = {key: 'evanliu'}，这样修改了exports的引用
+```
+`require`本身是一个函数，同时挂在了5个方法：
+- `require.cache`
+- `require.extensions`
+- `require.main`
+- `require.resolve(request[, options])`
+- `require.resolve.paths(request)`
+其中`require.cache`是热更新的关键。
+`require.extensions`官方已准备废弃，不过还可以使用。可以对不同后缀的文件做处理，例如默认加载`.json`会自动转成`JSON`对象，也可以自行加点其他的，如下：
+```javascript
+var extensions = ['.css', '.less']; //里面定义不需要加载的文件类型
+for (let i = 0, len = extensions.length; i < len; i++) {
+  require.extensions[extensions[i]] = function () {
+    return false;
+  };
+}
+```
 ### node模块热更新
 
 在特殊场景需求下需要不重启就更新一些非核心node模块，而由于node模块的缓存检测机制，热更新实际上就是如何来清除引用的模块缓存

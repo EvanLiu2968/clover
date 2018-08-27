@@ -64,7 +64,13 @@ module.exports = {
 多进程构建相关两个包为`happypack` `webpack-parallel-uglify-plugin`，
 dll配置可以引入webpack内置插件`webpack/lib/DllPlugin`
 
-5. 其他
+5. 服务端渲染配置
+- `target: 'node'` 由于输出代码的运行环境是node，源码中依赖的node原生模块没必要打包进去；
+- `externals: [nodeExternals()]` webpack-node-externals的目的是为了防止node_modules目录下的第三方模块被打包进去，因为nodejs默认会去node_modules目录下去寻找和使用第三方模块。
+- 忽略掉不需要被打包进用于服务端的代码中去的文件，例如css之类(或者提取css以行内样式的形式插入html)
+- `libraryTarget： 'commonjs2'`以commonjs2规范导出渲染函数，以供给采用nodejs编写的http服务器代码调用。
+
+6. 其他
 
 webpack3中一般使用`extract-text-webpack-plugin`来处理css，不过webpack4中使用会有兼容问题，官方推荐使用`mini-css-extract-plugin`
 

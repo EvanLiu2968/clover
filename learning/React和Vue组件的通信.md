@@ -209,3 +209,4 @@ export default class Bullet extends Component{
   }
 }
 ```
+- `ReactDOM.createPortal` React16版本新的顶级API，可以把组件渲染在父节点DOM之外，但保持组件的嵌套关系
