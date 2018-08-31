@@ -75,3 +75,56 @@ dll配置可以引入webpack内置插件`webpack/lib/DllPlugin`
 webpack3中一般使用`extract-text-webpack-plugin`来处理css，不过webpack4中使用会有兼容问题，官方推荐使用`mini-css-extract-plugin`
 
 html-webpack-plugin需要注意`chunksSortMode`这个属性，否则有可能注入js的顺序不是你所预期的那样子，能设置的属性值有'none' | 'auto' | 'dependency' | 'manual' | {Function}，我这里设置了manual,即按照chunks数组的顺序注入
+
+### babel
+babel的配置需要单独放在`.babelrc`，不建议放在wenpack配置或其他构建工具里。
+```json
+{
+  "presets": [
+    "es2015",
+    "react",
+    "stage-0",
+    [
+      "env",
+      { "modules": false }
+    ]
+  ],
+  "plugins": [
+    [
+      "transform-runtime",
+      {
+        "polyfill": true,
+        "regenerator": true
+      }
+    ],
+    "transform-class-properties",
+    "transform-decorators-legacy"
+  ]
+}
+```
+现在babel已经到了7+版本，不过为稳妥起见还是继续使用6+版本(最后版本是6.26)
+- 执行顺序
+plugins会先于presets执行，plugins执行顺序是从上到下，presets相反是从下到上(据说为了适应多数人的配置顺序)
+- 参数 String:name || Array:[String:name,JSON:option]
+- 其中`env`和`transform-runtime`相对重要些，而实际上基本除了`env`需要做些配置，其他的均使用默认配置即可，上面的`transform-runtime`两个属性也是默认true的
+```json
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "safari >= 7"],
+        "node": "6.10",
+        "uglify": true
+      },
+       "modules": false, //设为false不转换es6 module是为了webpack tree shaking
+       "loose": true,
+       "spec": true,
+       "debug": true,
+       "useBuiltIns": true,
+       "include": [],
+       "exclude": [],
+    }]
+  ]
+}
+```
+具体看[https://babeljs.io/docs/en/6.26.3/babel-preset-env](https://babeljs.io/docs/en/6.26.3/babel-preset-env)
