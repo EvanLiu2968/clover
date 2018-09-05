@@ -19,4 +19,14 @@
 
 ### React及Vue组件的监控及采集
 
-待后续
+```javascript
+export const reporter = function(props = {}){
+  return function(Component){
+    return class extends React.Component {
+      render() {
+        return <Reporter {...props}><Component {...this.props}/></Reporter>
+      }
+    }
+  }
+}
+```

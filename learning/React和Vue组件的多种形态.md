@@ -118,6 +118,23 @@ import { Form } from 'antd';
 
 const ConnectedComment = connect(mapStateToProps, mapDispatchToProps)(Component);
 const WrappedLoginForm = Form.create()(LoginForm);
+// 另一种调用方式如decorator
+@Form.create()
+class LoginForm extends React.Component {
+  //
+}
+```
+大概形式如下：
+```javascript
+export const errorHandler = function(props = {}){
+  return function(Component){
+    return class extends React.Component {
+      render() {
+        return <ErrorHandler {...props}><Component {...this.props}/></ErrorHandler>
+      }
+    }
+  }
+}
 ```
 
 上面这种是通过包装组件达到扩展组件功能的一个目的，还有一种则是以函数形式的调用来操控组件，最常见的如消息弹框
