@@ -65,6 +65,12 @@
           "src": "Webpack4的实践应用"
         },
         {
+          "title": "一次Webpack编译失败的总结",
+          "keywords": [ "webpack" ],
+          "createTime": "2018-10-19",
+          "src": "一次Webpack编译失败的总结"
+        },
+        {
           "title": "React和Vue同构组件的两端兼容",
           "keywords": [ "同构","React","Vue" ],
           "createTime": "2018-03-27",
