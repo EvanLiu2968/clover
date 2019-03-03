@@ -1,5 +1,5 @@
 # 书签
-记录有趣、有用的网站 (Google Chrome书签)
+记录有趣、有用的网站 (已收录Google Chrome书签)
  
 ## 工具
  - [查域名](http://dns.aizhan.com/)
