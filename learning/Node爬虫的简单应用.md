@@ -111,4 +111,34 @@ keyboard.press('ArrowUp',{delay:1000}) //按住上箭头键一秒，模拟滚动
 
 使用puppeteer是可以解决很多难题的，比如cookie/token限制，登录限制等，都可以通过puppeteer来解决，这里只算是一个引子。
 
-关于puppeteer的API可以去看看[puppeteer API](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md),了解下能做到哪些好玩的事
+#### 问题难点
+- 人机验证
+  - ip识别(利用代理ip，构建ip池)
+  - 机器码/浏览器识别码识别(可构建伪造的浏览器信息池，定时更换)
+  - 用户行为识别(点击、滚动、鼠标轨迹)
+  - 滑块验证(固定滑块、缺口补全滑块、刮刮卡滑块)
+  - 验证码验证(包括验证码、图片识别点击、问题回答)
+- 单页型应用(puppeteer无头浏览器解决,会执行js渲染页面)
+- 需要账号的需要批量注册/登录/接收验证码(手机或邮箱)
+- 分布式爬取
+  - 已有数据去重
+  - 多线程url去重
+
+#### puppeteer安装
+直接npm安装可能会遭遇失败，实测Mac比较容易成功，以windows为例，可以直接使用本地的chrome
+1. 在nodejs安装目录(..\nodejs\node_modules\npm\)的npmrc文件加入
+```
+puppeteer_skip_chromium_download = 1
+```
+2. 然后
+```
+npm i -S puppeteer
+```
+即可安装成功
+3. 代码调用初始化时需要声明chrome安装位置
+```js
+const puppeteer = require('puppeteer');
+const browser = await puppeteer.launch({
+  executablePath: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
+});
+```

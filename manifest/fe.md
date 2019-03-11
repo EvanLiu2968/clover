@@ -186,6 +186,41 @@ class Animal {
   }
 }
 ```
+## 实现一个简单的redux
+```js
+class Store {
+
+  constructor(reducer, initialState) {
+    this._reducer = reducer
+    this._state = initialState
+    this.listeners = []
+  }
+
+  getState() {
+    return this._state
+  }
+
+  dispatch(action) {
+    let newState = this._reducer(this._state, action)
+    if(newState !== this._state) {
+      this._state = newState
+      this.listeners.forEach(listener => listener())
+    }
+  }
+
+  subscribe(listener) {
+    this.listeners.push(listener)
+    return () => {
+      const index = this.listeners.indexOf(listener)
+      this.listeners.splice(index, 1)
+    }
+  }
+}
+
+export const createStore = (reducer, initialState) => {
+  return new Store(reducer, initialState)
+}
+```
 
 ## 写一个匹配 url 中 pathname 的正则。
 ```js
