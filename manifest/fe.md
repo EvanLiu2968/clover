@@ -118,7 +118,7 @@ position:static(default), absolute, relative, fixed, sticky
 层级是相对于兄弟元素，并且相同层级后来居上
 
 ## [基础] 下面绑定事件方式
-```
+```js
 // 方式1
 jQuery('body').on('click', '.btn', (e) => {
   console.log(e);
