@@ -11,7 +11,8 @@ module.exports = function(){
   if(instance){
     return instance     //第二次会执行
   }else{
-    return new Orange() //第一次会执行
+    instance = new Orange()
+    return instance //第一次会执行
   }
 }
 ```
