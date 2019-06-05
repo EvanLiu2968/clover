@@ -20,11 +20,11 @@
 windows
 直接安装对应安装包, 跟Node一样会自动配置环境变量
 然后要在git bash里执行还需要这几步
-[Git Shell - go command not found](https://stackoverflow.com/questions/36869660/git-shell-go-command-not-found)
+[stackoverflow.com/Git Shell - go command not found](https://stackoverflow.com/questions/36869660/git-shell-go-command-not-found)
 ```bash
 # You have to put the Go executable in your PATH:
- cd ~
- vi .bashrc
+cd ~
+vi .bashrc
 # Inside .bashrc, enter the following:
 PATH=$PATH:/c/Go/bin
 
@@ -35,10 +35,17 @@ go version
 Mac/linux
 ```bash
 # 下载二进制包：go1.12.5.linux-amd64.tar.gz。
+wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
+
 # 将下载的二进制包解压至 /usr/local目录。
 tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
+
 # 将 /usr/local/go/bin 目录添加至PATH环境变量：
+vi /etc/profile
 export PATH=$PATH:/usr/local/go/bin
+source /etc/profile
+
+go version
 ```
 
 ### Hello world
@@ -53,5 +60,5 @@ func main() {
 }
 ```
 ```bash
-go run test.go # go build hello.go
+go run test.go # go build test.go
 ```
