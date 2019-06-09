@@ -18,10 +18,10 @@ import "github.com/EvanLiu2968/go-koa"
 func main() {
   app := koa.App()
   // response
-  app.use(func(ctx koa.Context){
-    ctx.body = "hello, koa"
+  app.Use(func(ctx koa.Context){
+    ctx.body = "hello, go-koa"
   })
 
-  app.listen(3000)
+  app.Listen(3000)
 }
 ```
