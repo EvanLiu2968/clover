@@ -9,19 +9,39 @@
 
 现在，虽然我还没有写代码，但可以把使用文档先写出来。
 
-#### Hello go-Koa
+#### Hello Koa
 ```go
 package main
 
 import "github.com/EvanLiu2968/go-koa"
 
 func main() {
-  app := koa.App()
+  app := koa.New()
   // response
   app.Use(func(ctx koa.Context){
-    ctx.body = "hello, go-koa"
+    ctx.SetBody("hello, koa")
   })
 
   app.Listen(3000)
+}
+```
+#### Context
+主要方法都集中在ctx
+```go
+type Context interface {
+  SetBody(body string)
+  // 获取响应头
+  GetContentType()
+  // 设置响应头
+  SetContentType(cType string)
+  // 获取header
+  GetHeader(name string)
+  // 设置header
+  SetHeader(name string, value string)
+  // 获取cookie
+  GetCookie(name string)
+  // 设置cookie
+  SetCookie(name string, value string)
+  // ...
 }
 ```
