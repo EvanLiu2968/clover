@@ -143,6 +143,16 @@ func main() {
   say("hello")
 }
 ```
+8. 指针
+*主要用在指针类型声明和取地址上实际值。 &用于取地址
+```go
+type demo struct {
+    Value string
+}
+var pt *demo //*用作指针类型声明
+pt = &demo{Value: "val"} //&取值地址
+d1 := *pt //*用作取地址指向的实际值
+```
 
 ### 面向对象
 面向对象并没有标准的定义，其主要引入了对象（object)、类（class）、继承（inheritance）、子类（subclass）等概念，Java，Javascript都是如此。go并没有这些东西，不过也可以由此实现面向对象的思想。
