@@ -29,12 +29,6 @@
           "src": "Golang开发clog：二"
         },
         {
-          "title": "Git commit emoji 指南",
-          "keywords": [ "Git","emoji","commit" ],
-          "createTime": "2019-06-23",
-          "src": "Git commit emoji 指南"
-        },
-        {
           "title": "基于Linux的Node服务器搭建",
           "keywords": [ "CentOS7","Node","Nginx" ],
           "createTime": "2018-03-18",
