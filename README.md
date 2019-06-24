@@ -93,7 +93,6 @@ emoji                                   | emoji 代码                   | commi
 - [styleguide-git-commit-message](https://github.com/slashsBin/styleguide-git-commit-message)
 - [atom git commit messages guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages)
 - [An emoji guide for your commit messages](https://gitmoji.carloscuesta.me/)
-- [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 
 #### write a good commit message
 
