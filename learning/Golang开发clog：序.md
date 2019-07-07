@@ -14,8 +14,6 @@
 - [awesome-go](https://github.com/avelino/awesome-go)
 - [golang-for-nodejs-developers](https://github.com/miguelmota/golang-for-nodejs-developers)
 - [https://gin-gonic.com](https://gin-gonic.com/zh-cn/docs/)
-- [Go Lang 中文网](https://studygolang.com)
-- [Go Web Iris 中文网](https://studyiris.com)
 - [Go Interview Questions and Answers](https://goquiz.github.io)
 
 ### 开发环境安装
