@@ -252,22 +252,10 @@
           "src": "README"
         },
         {
-          "title": "电影推荐",
-          "keywords": [ "电影","推荐" ],
-          "createTime": "2018-04-07",
-          "src": "电影推荐"
-        },
-        {
-          "title": "风格化摄影",
-          "keywords": [ "摄影","风格" ],
-          "createTime": "2018-05-12",
-          "src": "风格化摄影"
-        },
-        {
-          "title": "工具清单",
-          "keywords": [ "tool","mainfest" ],
+          "title": "Web开发姿势指北",
+          "keywords": [ "develop tools","mainfest" ],
           "createTime": "2018-08-01",
-          "src": "工具清单"
+          "src": "Web开发姿势指北"
         }
       ]
     },
