@@ -25,7 +25,7 @@
 - `Proxy SwitchyOmega` 代理设置、切换
 - `Postman` 请求测试
 - `Lighthouse` Google官方网页应用检测工具
-- `Inject JS` JS脚本注入，https://github.com/EvanLiu2968/InjectJS
+- `Inject JS` JS脚本注入，个人专用，https://github.com/EvanLiu2968/InjectJS
 
 
 ### VSCode扩展
@@ -112,7 +112,14 @@ User Setting
   - 禅道，免费开源
 - 代码管理
   - Gitlab
-- 代码管理
+- 文件管理
   - SVN
 - 文档管理
   - 语雀，有道云
+
+### 环境配置
+- phpStudy 让天下没有难配的服务器环境，windows环境下很好使，php是最好的工具
+
+### 其他
+- 自动接口文档 Swagger UI
+- 模拟接口服务 [easyMock](https://www.easy-mock.com)
