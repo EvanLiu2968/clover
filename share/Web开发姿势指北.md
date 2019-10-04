@@ -3,7 +3,7 @@
 > 工欲善其事，必先利其器。
 
 ### Chrome扩展
-- `谷歌访问助手` 可自由访问某些404网站，安装扩展的前置技能，代价是需要设置固定的主页
+- `谷歌访问助手` 可自由访问某些404网站，安装扩展的前置技能
 - `React Developer Tools` 调试、标识React应用，代表应用：知乎、严选、腾讯云等
 - `Vue.js devtools` 调试、标识Vue应用，代表应用：哔哩哔哩、简书、掘金等
 - `WEB前端助手(FeHelper)` 常用小工具集合
@@ -34,7 +34,6 @@
 - `Auto Close Tag` Html Tag 自动镜像填充
 - `Auto Rename Tag` Html Tag 自动镜像修改
 - `Bracket Pair Colorizer` 代码块自动线框高亮，便于深层嵌套代码查看
-- `Chinese (Simplified) Language Package` VSCode简体中文语言包
 - `Code Runner` 主要语言的右键运行
 - `Document This` 快捷生成注释
 - `Eslint` Javascript书写规范化，可以自动格式化代码
@@ -46,6 +45,7 @@
 - `Vetur` Vue 语法高亮
 
 其他可选插件：
+- `Chinese (Simplified) Language Package` VSCode简体中文语言包
 - `IntelliJ IDEA Keybindings` 按键导入，按照主要习惯选择其他App的设置
 - `Setting Sync` VSCode所有配置(设置、扩展等)同步
 - `Go` Go语法高亮
@@ -103,8 +103,6 @@ User Setting
 
 - Mac
   - Sketch
-- Windows
-  - PxCook
 
 ### 公司开源平台
 
@@ -118,8 +116,9 @@ User Setting
   - 语雀，有道云
 
 ### 环境配置
-- phpStudy 让天下没有难配的服务器环境，windows环境下很好使，php是最好的工具
+- phpStudy windows环境下很好使，php是很好的工具
 
 ### 其他
 - 自动接口文档 Swagger UI
-- 模拟接口服务 [easyMock](https://www.easy-mock.com)
+- 模拟接口服务 [easyMock](https://www.easy-mock.com)，基于mockjs
+- 抓包工具[charles(青花瓷)](https://www.charlesproxy.com/download/)
