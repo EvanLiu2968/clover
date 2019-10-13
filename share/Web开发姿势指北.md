@@ -3,8 +3,8 @@
 > 工欲善其事，必先利其器。
 
 ### Chrome扩展
-- `谷歌访问助手` 可自由访问某些404网站，安装扩展的前置技能
-- `React Developer Tools` 调试、标识React应用，代表应用：腾讯云、知乎、网易严选等
+- `谷歌访问助手` 访问某些404网站和安装Chrome扩展
+- `React Developer Tools` 调试、标识React应用，代表应用：知乎、腾讯云、网易严选、阿里系产品等
 - `Vue.js devtools` 调试、标识Vue应用，代表应用：哔哩哔哩、金山在线文档等
 - `WEB前端助手(FeHelper)` 常用小工具集合
 - `ColorZilla` 取色器
