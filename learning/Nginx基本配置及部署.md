@@ -32,6 +32,34 @@ http {
 }
 ```
 
+### Nginx静态文件服务部署
+```conf
+server {
+  listen       80;
+    server_name  www.evanliu2968.com.cn;
+    charset      utf-8;
+    root         /repo/evanliu2968/dist/;
+    location / {
+      index   /pages/index.html;
+    }
+    location /system/ {
+      index   /pages/system.html;
+    }
+    # api proxy
+    location /api/ {
+      proxy_pass   http://192.168.2.161:8083;
+      set $token $cookie_token;
+      if ( $http_accessToken != '' ) {
+        set $token $http_accessToken;
+      }
+      proxy_set_header   accessToken      $token;
+      proxy_set_header   Host             $host;
+      proxy_set_header   X-Real-IP        $remote_addr;
+      proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+    }
+}
+```
+
 ### Nginx单域名多服务部署
 ```conf
 server {
