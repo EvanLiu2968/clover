@@ -47,7 +47,7 @@ server {
     }
     # api proxy
     location /api/ {
-      proxy_pass   http://192.168.2.161:8083;
+      proxy_pass   http://127.0.0.1:7001;
       set $token $cookie_token;
       if ( $http_accessToken != '' ) {
         set $token $http_accessToken;
