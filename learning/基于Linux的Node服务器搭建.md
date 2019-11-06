@@ -20,6 +20,22 @@ npm i n -g
 n latest
 # install global npm pm2
 npm i npm pm2 -g
+# install yarn
+sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+
+sudo yum install yarn
+
+yarn config set registry https://registry.npm.taobao.org -g
+
+yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
+```
+#### Install Git & Node
+```sh
+yum install git
+# install node
+curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+
+yum install -y nodejs
 ```
 
 #### Git pull remote resposity
