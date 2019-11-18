@@ -15,18 +15,20 @@ http {
     access_log  /var/log/nginx/access.log  main;
 
     sendfile        on;
-    #tcp_nopush     on;
+    # tcp_nopush     on;
 
     keepalive_timeout  65;
 
-    gzip on; #gzip start
+    # gzip start
+    gzip on;
     gzip_min_length 1k;
     gzip_buffers 4 16k;
-    #gzip_http_version 1.0;
+    # gzip_http_version 1.0;
     gzip_comp_level 2;
     gzip_types text/plain application/x-javascript text/css application/xml text/javascript image/jpeg image/gif image/png;
     gzip_vary off;
-    gzip_disable "MSIE [1-6]\."; #gzip end
+    gzip_disable "MSIE [1-6]\.";
+    # gzip end
 
     include /etc/nginx/conf.d/*.conf;
 }

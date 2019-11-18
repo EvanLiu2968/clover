@@ -35,7 +35,7 @@
 - `Auto Rename Tag` Html Tag 自动镜像修改
 - `Bracket Pair Colorizer` 代码块自动线框高亮，便于深层嵌套代码查看
 - `Code Runner` 主要语言的右键运行
-- `Document This` 快捷生成注释
+- `Doxygen Documentation Generator` 快捷生成注释，支持多语言，支持自定义模板
 - `Eslint` Javascript书写规范化，可以自动格式化代码
 - `GitLens` 让你知道每一行代码（Bug）的Git提交日期、作者、提交信息等
 - `Markdown Preview Enhanced` Markdown预览增强
@@ -120,5 +120,6 @@ User Setting
 
 ### 其他
 - 自动接口文档 Swagger UI
+- [YApi](https://github.com/YMFE/yapi)
 - 模拟接口服务 [easyMock](https://www.easy-mock.com)，基于mockjs
 - 抓包工具[charles(青花瓷)](https://www.charlesproxy.com/download/)
