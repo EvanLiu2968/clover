@@ -41,11 +41,22 @@ server {
     server_name  www.evanliu2968.com.cn;
     charset      utf-8;
     root         /repo/evanliu2968/dist/;
+    # hash模式
     location / {
       index   /pages/index.html;
     }
     location /system/ {
       index   /pages/system.html;
+    }
+    # history模式
+    location / {
+      try_files $uri $uri/ @rewrites;
+    }
+    location @rewrites {
+      rewrite ^(.+)$ /pages/index.html last;
+    }
+    location ^~ /system/{
+      try_files $uri /pages/system.html;
     }
     # api proxy
     location /api/ {
